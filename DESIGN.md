@@ -7,8 +7,8 @@ colors:
   panel: "#fffdfa"
   line: "#e9dfd0"
   muted: "#7d6f60"
-  accent: "#bd5f2c"
-  accent-dark: "#8f4720"
+  accent: "#a8531f"
+  accent-dark: "#7a3c15"
   dark: "#241b14"
   success: "#1f9d55"
   danger: "#c14545"
@@ -88,8 +88,8 @@ Warmth here means literal warmth of hue (cream paper, terracotta accent, brown-b
 Warm, low-saturation neutrals carry the page; a single terracotta accent does all the emphasis work.
 
 ### Primary
-- **Route Terracotta** (`#bd5f2c`): the one accent. Primary CTAs, active nav underline, focus rings, icon-badge tint, headline emphasis word, form focus state. Never diluted by a second accent hue.
-- **Deep Rust** (`#8f4720`): Route Terracotta's hover/active state only. Not used as a standalone color anywhere else.
+- **Route Terracotta** (`#a8531f`): the one accent. Primary CTAs, active nav underline, focus rings, icon-badge tint, headline emphasis word, form focus state. Never diluted by a second accent hue.
+- **Deep Rust** (`#7a3c15`): Route Terracotta's hover/active state only. Not used as a standalone color anywhere else.
 
 ### Neutral
 - **Warm Ink** (`#1c1611`): primary text and headings. Brown-black, never blue-black or pure `#000`.

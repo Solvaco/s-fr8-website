@@ -7,13 +7,13 @@
       "accent": {
         "role": "primary",
         "displayName": "Route Terracotta",
-        "canonical": "#bd5f2c",
-        "tonalRamp": ["#2e1608", "#4a230d", "#6b3313", "#8a4119", "#bd5f2c", "#cf7a4d", "#e3a67e", "#f4d9c4"]
+        "canonical": "#a8531f",
+        "tonalRamp": ["#2e1608", "#4a230d", "#6b3313", "#8a4119", "#a8531f", "#cf7a4d", "#e3a67e", "#f4d9c4"]
       },
       "accent-dark": {
         "role": "primary-hover",
         "displayName": "Deep Rust",
-        "canonical": "#8f4720"
+        "canonical": "#7a3c15"
       },
       "ink": {
         "role": "neutral",
@@ -100,7 +100,7 @@
       "refersTo": "input",
       "description": "Form field with above-field label, used identically across the three lead forms.",
       "html": "<div class=\"ds-field\"><label for=\"ds-name\" class=\"ds-label\">Nom</label><input id=\"ds-name\" class=\"ds-input\" type=\"text\" placeholder=\"Jean Dupont\" /></div>",
-      "css": ".ds-field { display: flex; flex-direction: column; gap: 6px; } .ds-label { font-size: 14px; font-weight: 500; color: var(--color-ink); font-family: var(--font-sans); } .ds-input { width: 100%; border: 1px solid var(--color-line); background: var(--color-panel); border-radius: 12px; padding: 10px 14px; font-size: 14px; color: var(--color-ink); font-family: var(--font-sans); outline: none; transition: border-color 0.2s, box-shadow 0.2s; } .ds-input::placeholder { color: rgba(125,111,96,0.6); } .ds-input:focus { border-color: var(--color-accent); box-shadow: 0 0 0 3px rgba(189,95,44,0.15); }"
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 6px; } .ds-label { font-size: 14px; font-weight: 500; color: var(--color-ink); font-family: var(--font-sans); } .ds-input { width: 100%; border: 1px solid var(--color-line); background: var(--color-panel); border-radius: 12px; padding: 10px 14px; font-size: 14px; color: var(--color-ink); font-family: var(--font-sans); outline: none; transition: border-color 0.2s, box-shadow 0.2s; } .ds-input::placeholder { color: rgba(125,111,96,0.6); } .ds-input:focus { border-color: var(--color-accent); box-shadow: 0 0 0 3px rgba(168,83,31,0.15); }"
     },
     {
       "name": "Service Card",
@@ -108,7 +108,7 @@
       "refersTo": "card",
       "description": "Bento-grid card: icon badge, title, description. Lifts slightly on hover.",
       "html": "<div class=\"ds-card\"><div class=\"ds-card-icon\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\"><rect x=\"3\" y=\"7\" width=\"13\" height=\"9\" rx=\"1.5\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M16 10H19L21 13V16H16V10Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\"/><circle cx=\"7.5\" cy=\"18\" r=\"1.5\" fill=\"currentColor\"/><circle cx=\"17.5\" cy=\"18\" r=\"1.5\" fill=\"currentColor\"/></svg></div><h3 class=\"ds-card-title\">Dry Van</h3><p class=\"ds-card-body\">Transport de marchandises générales en remorque fermée.</p></div>",
-      "css": ".ds-card { border-radius: 28px; border: 1px solid var(--color-line); background: var(--color-panel); box-shadow: 0 20px 40px -15px rgba(28,22,17,0.12); padding: 32px; transition: transform 0.3s; font-family: var(--font-sans); } .ds-card:hover { transform: translateY(-4px); } .ds-card-icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 16px; background: rgba(189,95,44,0.1); color: var(--color-accent); } .ds-card-title { margin-top: 24px; font-size: 20px; font-weight: 600; color: var(--color-ink); letter-spacing: -0.025em; } .ds-card-body { margin-top: 8px; max-width: 42ch; font-size: 14px; line-height: 1.6; color: var(--color-muted); }"
+      "css": ".ds-card { border-radius: 28px; border: 1px solid var(--color-line); background: var(--color-panel); box-shadow: 0 20px 40px -15px rgba(28,22,17,0.12); padding: 32px; transition: transform 0.3s; font-family: var(--font-sans); } .ds-card:hover { transform: translateY(-4px); } .ds-card-icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 16px; background: rgba(168,83,31,0.1); color: var(--color-accent); } .ds-card-title { margin-top: 24px; font-size: 20px; font-weight: 600; color: var(--color-ink); letter-spacing: -0.025em; } .ds-card-body { margin-top: 8px; max-width: 42ch; font-size: 14px; line-height: 1.6; color: var(--color-muted); }"
     },
     {
       "name": "Language Toggle",
