@@ -28,6 +28,10 @@ export default function QuoteForm() {
   const { lang } = useLanguage();
   const t = translations[lang].contact.form;
   const status = translations[lang].formStatus;
+  const freightTypeOptions = [
+    ...translations[lang].services.items.map((item) => item.title),
+    t.freightTypeOther,
+  ];
 
   const [values, setValues] = useState<QuoteFormValues>(EMPTY);
   const [state, setState] = useState<FormStatusState>("idle");
@@ -47,7 +51,7 @@ export default function QuoteForm() {
     id: key,
     value: values[key],
     "aria-invalid": invalidFields.has(key) || undefined,
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
+    onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
       setValues((prev) => ({ ...prev, [key]: e.target.value })),
   });
 
@@ -96,7 +100,20 @@ export default function QuoteForm() {
         <p className={`${groupLabelClass} sm:col-span-2`}>{lang === "fr" ? "Détails de la charge" : "Shipment details"}</p>
         <div>
           <label htmlFor="freightType" className={labelClass}>{t.freightType}</label>
-          <input {...field("freightType")} id="freightType" className={inputClass("freightType")} />
+          <select
+            {...field("freightType")}
+            id="freightType"
+            className={`${inputClass("freightType")} cursor-pointer`}
+          >
+            <option value="" disabled>
+              {t.freightTypePlaceholder}
+            </option>
+            {freightTypeOptions.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
         </div>
         <div>
           <label htmlFor="origin" className={labelClass}>{t.origin}</label>
