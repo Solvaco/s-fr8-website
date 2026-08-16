@@ -3,6 +3,7 @@
 import { PhoneCall, Lightning, GlobeHemisphereWest } from "@phosphor-icons/react";
 import { useLanguage } from "@/lib/language-context";
 import { translations } from "@/lib/translations";
+import PageBanner from "@/components/PageBanner";
 
 const ICONS = [PhoneCall, Lightning, GlobeHemisphereWest];
 
@@ -20,6 +21,12 @@ export default function AboutPage() {
           <p className="max-w-[60ch] text-lg leading-relaxed text-muted">{t.body}</p>
         </div>
       </div>
+
+      <PageBanner
+        src="/images/warehouse-interior.jpg"
+        alt={lang === "fr" ? "Intérieur d'un entrepôt logistique" : "Inside a logistics warehouse"}
+        className="mt-16"
+      />
 
       <div className="mt-16 border-t border-line pt-16">
         <h2 className="text-2xl font-semibold tracking-tight">{t.valuesTitle}</h2>
