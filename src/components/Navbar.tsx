@@ -1,4 +1,3 @@
-// src/components/Navbar.tsx
 "use client";
 
 import Link from "next/link";
@@ -6,6 +5,8 @@ import Image from "next/image";
 import { useLanguage } from "@/lib/language-context";
 import { translations } from "@/lib/translations";
 import LanguageToggle from "./LanguageToggle";
+import MagneticButton from "./MagneticButton";
+import MobileMenu from "./MobileMenu";
 
 export default function Navbar() {
   const { lang } = useLanguage();
@@ -21,16 +22,20 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/5 bg-white/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-        <Link href="/" className="flex items-center gap-2">
-          <Image src="/logo.png" alt="Solvaco" width={36} height={36} />
-          <span className="font-black tracking-tight">Solvaco Freight</span>
+    <header className="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur-md relative">
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-4 py-3 sm:px-6">
+        <Link href="/" className="flex items-center gap-2.5">
+          <Image src="/logo.png" alt="Solvaco" width={32} height={32} className="h-8 w-8" />
+          <span className="text-[15px] font-semibold tracking-tight text-ink">Solvaco Freight</span>
         </Link>
 
-        <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
+        <nav className="hidden items-center gap-7 text-sm font-medium text-ink/70 md:flex">
           {links.map((link) => (
-            <Link key={link.href} href={link.href} className="hover:text-[var(--freight-primary)]">
+            <Link
+              key={link.href}
+              href={link.href}
+              className="relative py-1 transition-colors hover:text-ink after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
+            >
               {link.label}
             </Link>
           ))}
@@ -38,12 +43,15 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
           <LanguageToggle />
-          <Link
-            href="/contact"
-            className="hidden rounded-full bg-[var(--freight-accent)] px-4 py-2 text-sm font-bold text-white sm:inline-block"
-          >
-            {t.cta}
-          </Link>
+          <div className="hidden sm:block">
+            <MagneticButton
+              href="/contact"
+              className="inline-block rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent-dark"
+            >
+              {t.cta}
+            </MagneticButton>
+          </div>
+          <MobileMenu links={links} cta={{ href: "/contact", label: t.cta }} />
         </div>
       </div>
     </header>

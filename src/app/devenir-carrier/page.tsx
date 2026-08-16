@@ -10,9 +10,9 @@ export default function CarrierPage() {
   const t = translations[lang].carrier;
 
   return (
-    <section className="mx-auto max-w-2xl px-4 py-20 sm:px-6">
-      <h1 className="text-4xl font-black">{t.title}</h1>
-      <p className="mt-2 text-[var(--freight-text-muted)]">{t.subtitle}</p>
+    <section className="mx-auto max-w-3xl px-4 py-20 sm:px-6 md:py-28">
+      <h1 className="text-4xl font-semibold leading-none tracking-tighter sm:text-5xl">{t.title}</h1>
+      <p className="mt-4 max-w-[52ch] text-base leading-relaxed text-muted">{t.subtitle}</p>
       <div className="mt-10">
         <CarrierForm />
       </div>

@@ -10,6 +10,10 @@ import FormStatus, { FormStatusState } from "./FormStatus";
 
 const EMPTY: TrackingFormValues = { loadNumber: "", email: "" };
 
+const inputClass =
+  "w-full rounded-xl border border-line bg-panel px-3.5 py-2.5 text-sm text-ink outline-none transition-colors placeholder:text-muted/60 focus:border-accent focus:ring-2 focus:ring-accent/15";
+const labelClass = "mb-1.5 block text-sm font-medium text-ink";
+
 export default function TrackingForm() {
   const { lang } = useLanguage();
   const t = translations[lang].tracking.form;
@@ -50,23 +54,25 @@ export default function TrackingForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="grid gap-4">
+    <form onSubmit={handleSubmit} className="grid gap-4 sm:grid-cols-2">
       <div>
-        <label htmlFor="loadNumber">{t.loadNumber}</label>
-        <input {...field("loadNumber")} id="loadNumber" className="w-full rounded-lg border border-black/10 px-3 py-2" />
+        <label htmlFor="loadNumber" className={labelClass}>{t.loadNumber}</label>
+        <input {...field("loadNumber")} id="loadNumber" className={inputClass} />
       </div>
       <div>
-        <label htmlFor="email">{t.email}</label>
-        <input {...field("email")} id="email" type="email" className="w-full rounded-lg border border-black/10 px-3 py-2" />
+        <label htmlFor="email" className={labelClass}>{t.email}</label>
+        <input {...field("email")} id="email" type="email" className={inputClass} />
       </div>
 
-      {validationMessage && <FormStatus state="error" successText="" errorText={validationMessage} />}
-      <FormStatus state={state} successText={status.success} errorText={errorMessage} />
+      <div className="sm:col-span-2">
+        {validationMessage && <FormStatus state="error" successText="" errorText={validationMessage} />}
+        <FormStatus state={state} successText={status.success} errorText={errorMessage} />
+      </div>
 
       <button
         type="submit"
         disabled={sending}
-        className="rounded-full bg-[var(--freight-accent)] px-6 py-3 font-bold text-white disabled:opacity-70"
+        className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-accent-dark active:scale-[0.98] disabled:opacity-60 sm:col-span-2"
       >
         {sending ? t.sending : t.submit}
       </button>
