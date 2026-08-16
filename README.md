@@ -24,6 +24,11 @@ The three forms (quote, carrier signup, tracking) send through [EmailJS](https:/
 
 Until these are set, submitting any form shows a "not configured" error instead of silently failing.
 
+**Security note:** because delivery is client-side, the Service ID, Public Key, and Template IDs ship in the browser bundle and are visible via view-source. Mitigate abuse in the EmailJS dashboard itself, not in code:
+- **Domain restriction** — Account → Security → allow only the production domain to call your Public Key.
+- **Rate limiting** — cap requests per Service/Template to a sane per-hour ceiling.
+Do this before going live; it's the intended trust model for EmailJS's client-side SDK, but it's an EmailJS-account setting, not something this repo can enforce.
+
 ## Testing
 
 ```bash
