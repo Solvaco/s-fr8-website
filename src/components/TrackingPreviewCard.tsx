@@ -11,7 +11,7 @@ function TrackingPreviewCard() {
   const loadLabel = lang === "fr" ? "Charge" : "Load";
 
   return (
-    <div className="w-full max-w-sm rounded-[1.75rem] border border-line bg-panel p-6 shadow-[0_20px_40px_-15px_rgba(28,22,17,0.12)]">
+    <div className="w-full max-w-sm rounded-[1.75rem] border border-line bg-panel p-6 shadow-[0_20px_40px_-15px_rgba(22,32,43,0.12)]">
       <div className="flex items-center justify-between text-xs text-muted">
         <span className="font-mono tracking-tight">{loadLabel} · LD-4471</span>
         <span className="flex items-center gap-1.5 rounded-full bg-accent/10 px-2.5 py-1 font-medium text-accent-dark">

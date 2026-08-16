@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-16T18:30:00Z",
+  "generatedAt": "2026-08-16T21-15-00Z",
   "title": "Design System: Solvaco Freight",
   "extensions": {
     "colorMeta": {
@@ -17,29 +17,29 @@
       },
       "ink": {
         "role": "neutral",
-        "displayName": "Warm Ink",
-        "canonical": "#1c1611",
-        "tonalRamp": ["#0e0b08", "#1c1611", "#332822", "#493a30", "#6b5647", "#8f7666", "#bda99a", "#e7ddd2"]
+        "displayName": "Slate Ink",
+        "canonical": "#16202b",
+        "tonalRamp": ["#0a0e13", "#16202b", "#29394a", "#3d5468", "#5c7085", "#8098ac", "#b3c4d6", "#dde6f0"]
       },
       "paper": {
         "role": "neutral",
-        "displayName": "Cream Paper",
-        "canonical": "#faf6ef"
+        "displayName": "Soft Sky Paper",
+        "canonical": "#e3ecf7"
       },
       "panel": {
         "role": "neutral",
-        "displayName": "Warm White",
-        "canonical": "#fffdfa"
+        "displayName": "Frost White",
+        "canonical": "#f5f9fd"
       },
       "line": {
         "role": "neutral",
-        "displayName": "Sand Line",
-        "canonical": "#e9dfd0"
+        "displayName": "Mist Line",
+        "canonical": "#c7d5e6"
       },
       "muted": {
         "role": "neutral",
-        "displayName": "Toasted Taupe",
-        "canonical": "#7d6f60"
+        "displayName": "Steel Muted",
+        "canonical": "#5c7085"
       },
       "dark": {
         "role": "neutral",
@@ -64,7 +64,7 @@
       "label": { "displayName": "Label", "purpose": "Nav links, buttons, form labels, badges." }
     },
     "shadows": [
-      { "name": "card-lift", "value": "0 20px 40px -15px rgba(28,22,17,0.12)", "purpose": "Diffusion shadow for ServiceCard and TrackingPreviewCard." },
+      { "name": "card-lift", "value": "0 20px 40px -15px rgba(22,32,43,0.12)", "purpose": "Diffusion shadow for ServiceCard and TrackingPreviewCard." },
       { "name": "menu-lift", "value": "0 20px 40px -15px rgba(0,0,0,0.15)", "purpose": "Open mobile-menu dropdown, sits above page content." }
     ],
     "motion": [
@@ -92,7 +92,7 @@
       "refersTo": "button-ghost",
       "description": "Secondary CTA, transparent with a hairline border.",
       "html": "<a class=\"ds-btn-ghost\" href=\"#\">Devenir Carrier</a>",
-      "css": ".ds-btn-ghost { display: inline-block; background: transparent; color: rgba(28,22,17,0.85); border: 1px solid rgba(28,22,17,0.15); padding: 12px 24px; border-radius: 9999px; font-size: 14px; font-weight: 600; font-family: var(--font-sans); text-decoration: none; transition: border-color 0.2s, background-color 0.2s, transform 0.1s; } .ds-btn-ghost:hover { border-color: rgba(28,22,17,0.3); background: rgba(28,22,17,0.05); } .ds-btn-ghost:active { transform: scale(0.98); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }"
+      "css": ".ds-btn-ghost { display: inline-block; background: transparent; color: rgba(22,32,43,0.85); border: 1px solid rgba(22,32,43,0.15); padding: 12px 24px; border-radius: 9999px; font-size: 14px; font-weight: 600; font-family: var(--font-sans); text-decoration: none; transition: border-color 0.2s, background-color 0.2s, transform 0.1s; } .ds-btn-ghost:hover { border-color: rgba(22,32,43,0.3); background: rgba(22,32,43,0.05); } .ds-btn-ghost:active { transform: scale(0.98); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }"
     },
     {
       "name": "Text Input",
@@ -100,7 +100,7 @@
       "refersTo": "input",
       "description": "Form field with above-field label, used identically across the three lead forms.",
       "html": "<div class=\"ds-field\"><label for=\"ds-name\" class=\"ds-label\">Nom</label><input id=\"ds-name\" class=\"ds-input\" type=\"text\" placeholder=\"Jean Dupont\" /></div>",
-      "css": ".ds-field { display: flex; flex-direction: column; gap: 6px; } .ds-label { font-size: 14px; font-weight: 500; color: var(--color-ink); font-family: var(--font-sans); } .ds-input { width: 100%; border: 1px solid var(--color-line); background: var(--color-panel); border-radius: 12px; padding: 10px 14px; font-size: 14px; color: var(--color-ink); font-family: var(--font-sans); outline: none; transition: border-color 0.2s, box-shadow 0.2s; } .ds-input::placeholder { color: rgba(125,111,96,0.6); } .ds-input:focus { border-color: var(--color-accent); box-shadow: 0 0 0 3px rgba(168,83,31,0.15); }"
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 6px; } .ds-label { font-size: 14px; font-weight: 500; color: var(--color-ink); font-family: var(--font-sans); } .ds-input { width: 100%; border: 1px solid var(--color-line); background: var(--color-panel); border-radius: 12px; padding: 10px 14px; font-size: 14px; color: var(--color-ink); font-family: var(--font-sans); outline: none; transition: border-color 0.2s, box-shadow 0.2s; } .ds-input::placeholder { color: rgba(92,112,133,0.6); } .ds-input:focus { border-color: var(--color-accent); box-shadow: 0 0 0 3px rgba(168,83,31,0.15); }"
     },
     {
       "name": "Service Card",
@@ -108,7 +108,7 @@
       "refersTo": "card",
       "description": "Bento-grid card: icon badge, title, description. Lifts slightly on hover.",
       "html": "<div class=\"ds-card\"><div class=\"ds-card-icon\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\"><rect x=\"3\" y=\"7\" width=\"13\" height=\"9\" rx=\"1.5\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M16 10H19L21 13V16H16V10Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\"/><circle cx=\"7.5\" cy=\"18\" r=\"1.5\" fill=\"currentColor\"/><circle cx=\"17.5\" cy=\"18\" r=\"1.5\" fill=\"currentColor\"/></svg></div><h3 class=\"ds-card-title\">Dry Van</h3><p class=\"ds-card-body\">Transport de marchandises générales en remorque fermée.</p></div>",
-      "css": ".ds-card { border-radius: 28px; border: 1px solid var(--color-line); background: var(--color-panel); box-shadow: 0 20px 40px -15px rgba(28,22,17,0.12); padding: 32px; transition: transform 0.3s; font-family: var(--font-sans); } .ds-card:hover { transform: translateY(-4px); } .ds-card-icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 16px; background: rgba(168,83,31,0.1); color: var(--color-accent); } .ds-card-title { margin-top: 24px; font-size: 20px; font-weight: 600; color: var(--color-ink); letter-spacing: -0.025em; } .ds-card-body { margin-top: 8px; max-width: 42ch; font-size: 14px; line-height: 1.6; color: var(--color-muted); }"
+      "css": ".ds-card { border-radius: 28px; border: 1px solid var(--color-line); background: var(--color-panel); box-shadow: 0 20px 40px -15px rgba(22,32,43,0.12); padding: 32px; transition: transform 0.3s; font-family: var(--font-sans); } .ds-card:hover { transform: translateY(-4px); } .ds-card-icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 16px; background: rgba(168,83,31,0.1); color: var(--color-accent); } .ds-card-title { margin-top: 24px; font-size: 20px; font-weight: 600; color: var(--color-ink); letter-spacing: -0.025em; } .ds-card-body { margin-top: 8px; max-width: 42ch; font-size: 14px; line-height: 1.6; color: var(--color-muted); }"
     },
     {
       "name": "Language Toggle",
@@ -124,36 +124,36 @@
       "refersTo": "button-ghost",
       "description": "Desktop nav link with an accent underline that grows from 0 to full width on hover.",
       "html": "<a class=\"ds-nav-link\" href=\"#\">Services</a>",
-      "css": ".ds-nav-link { position: relative; padding: 4px 0; font-size: 14px; font-weight: 500; font-family: var(--font-sans); color: rgba(28,22,17,0.7); text-decoration: none; transition: color 0.2s; } .ds-nav-link:hover { color: var(--color-ink); } .ds-nav-link::after { content: \"\"; position: absolute; bottom: 0; left: 0; height: 1px; width: 0; background: var(--color-accent); transition: width 0.3s; } .ds-nav-link:hover::after { width: 100%; }"
+      "css": ".ds-nav-link { position: relative; padding: 4px 0; font-size: 14px; font-weight: 500; font-family: var(--font-sans); color: rgba(22,32,43,0.7); text-decoration: none; transition: color 0.2s; } .ds-nav-link:hover { color: var(--color-ink); } .ds-nav-link::after { content: \"\"; position: absolute; bottom: 0; left: 0; height: 1px; width: 0; background: var(--color-accent); transition: width 0.3s; } .ds-nav-link:hover::after { width: 100%; }"
     }
   ],
   "narrative": {
     "northStar": "The Border Crossing",
-    "overview": "Solvaco Freight sits between two countries and two audiences — shippers who need a load moved, carriers who want to move it — and the system is built to feel like a trusted family business that happens to run a serious cross-border operation, not a cold logistics SaaS dashboard. The first pass at this system leaned dark-navy, steel-blue, and razor-tight tracking; that direction was explicitly corrected mid-project because it read as \"precise tech,\" not \"warm and familial,\" and the palette, the Hero, and the tracking-preview panel were all rebuilt around a cream-and-terracotta family instead. Warmth here means literal warmth of hue (cream paper, terracotta accent, brown-black ink — never cool grays or blue-blacks) plus generous, soft-edged geometry (pill buttons, 28px-radius cards, diffuse shadows, no hard corners or hard-offset shadows). Precision still shows up, but through motion and structure — a magnetically-responsive primary CTA, a live-feeling tracking card, an asymmetric Bento services grid — not through coldness.",
+    "overview": "Solvaco Freight sits between two countries and two audiences — shippers who need a load moved, carriers who want to move it — and the system is built to feel like a trusted, established operation with a serious cross-border reach, not a generic template. The system has gone through two deliberate direction changes: the first pass leaned dark-navy/steel-blue and read as \"precise tech, not warm and familial,\" so it was rebuilt around a cream-and-terracotta family; the page background was then explicitly redirected back to a soft blue neutral base, kept legible and calm rather than the earlier dark-navy read. Route Terracotta stayed the accent through both changes — it's the background hue that moved, not the brand color. Warmth of geometry carries over even with a cooler base: generous, soft-edged forms (pill buttons, 28px-radius cards, diffuse shadows, no hard corners or hard-offset shadows) and a single warm accent against the cool neutral field.",
     "keyCharacteristics": [
-      "Warm neutral base (cream paper, brown-black ink) with exactly one accent color, never a second brand hue.",
+      "Soft blue neutral base with exactly one warm accent color (terracotta), never a second brand hue.",
       "Generous pill/rounded-rectangle geometry everywhere; nothing sharp-cornered.",
       "Flat by default; soft diffusion shadows only on the few surfaces that are genuinely elevated (cards).",
       "One authored perpetual-motion moment (the tracking-preview card), not motion scattered across every section.",
       "No eyebrow/kicker labels — headings speak for themselves."
     ],
     "rules": [
-      { "name": "The One Terracotta Rule", "body": "Route Terracotta is the only brand accent in the system. If a second accent color shows up anywhere outside the semantic success/danger pair, it's a regression — the system briefly had a second blue accent during an earlier pass and it was deliberately removed.", "section": "colors" },
+      { "name": "The One Terracotta Rule", "body": "Route Terracotta is the only brand accent in the system. If a second accent color shows up anywhere outside the semantic success/danger pair, it's a regression — the system briefly had a second blue accent during an earlier pass and it was deliberately removed. The current blue neutral base is not that accent — it must stay soft/desaturated, never the saturated steel-blue from the first pass.", "section": "colors" },
       { "name": "The Tracking Floor Rule", "body": "No heading goes tighter than -0.025em (tracking-tight). tracking-tighter is banned outright — it was in the first pass and was corrected for reading too cold.", "section": "typography" },
-      { "name": "The Diffusion-Only Rule", "body": "Shadows are soft and wide-spread, tinted from the warm ink hue, never a tight dark blob and never a zero-offset colored halo.", "section": "elevation" }
+      { "name": "The Diffusion-Only Rule", "body": "Shadows are soft and wide-spread, tinted from the ink hue, never a tight dark blob and never a zero-offset colored halo.", "section": "elevation" }
     ],
     "dos": [
       "Do keep Route Terracotta as the only brand accent; success/danger stay strictly semantic, never decorative.",
       "Do use full pill radius on every interactive control and 1.75rem on every card.",
       "Do keep headings at tracking-tight (-0.025em) or looser.",
       "Do isolate any perpetual/looping motion in a memoized client leaf component, never in a page-level component that re-renders.",
-      "Do warm-tint shadows from the ink hue; never a neutral-gray shadow."
+      "Do tint shadows from the ink hue; never a neutral-gray shadow."
     ],
     "donts": [
       "Don't add an eyebrow/kicker label above a heading. This was in the system once (Hero's badge pill) and was removed — the heading carries its own weight.",
       "Don't use gradient text for emphasis; the accent word in a headline is solid text-accent, nothing else.",
-      "Don't revert to the dark-navy/steel-blue palette from the first redesign pass — cream-and-terracotta is the confirmed, corrected direction.",
-      "Don't use tracking-tighter, hard-offset shadows, or gray (non-warm) neutrals anywhere in the system.",
+      "Don't introduce a second accent hue alongside Route Terracotta — the blue neutral base must stay soft/desaturated, never the saturated steel-blue accent from the first pass.",
+      "Don't use tracking-tighter or hard-offset shadows anywhere in the system.",
       "Don't fabricate a statistic, testimonial, or performance number on this site — PRODUCT.md records that none exist yet."
     ]
   }
