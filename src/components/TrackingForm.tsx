@@ -10,8 +10,8 @@ import FormStatus, { FormStatusState } from "./FormStatus";
 
 const EMPTY: TrackingFormValues = { loadNumber: "", email: "" };
 
-const inputClass =
-  "w-full rounded-xl border border-line bg-panel px-3.5 py-2.5 text-sm text-ink outline-none transition-colors placeholder:text-muted/60 focus:border-accent focus:ring-2 focus:ring-accent/15";
+const baseInputClass =
+  "w-full rounded-xl border bg-panel px-3.5 py-2.5 text-sm text-ink outline-none transition-colors placeholder:text-muted/60 focus:ring-2";
 const labelClass = "mb-1.5 block text-sm font-medium text-ink";
 
 export default function TrackingForm() {
@@ -24,10 +24,19 @@ export default function TrackingForm() {
   const [sending, setSending] = useState(false);
   const [validationMessage, setValidationMessage] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string>(status.errorSend);
+  const [invalidFields, setInvalidFields] = useState<Set<string>>(new Set());
+
+  const inputClass = (key: keyof TrackingFormValues) =>
+    `${baseInputClass} ${
+      invalidFields.has(key)
+        ? "border-danger focus:border-danger focus:ring-danger/15"
+        : "border-line focus:border-accent focus:ring-accent/15"
+    }`;
 
   const field = (key: keyof TrackingFormValues) => ({
     id: key,
     value: values[key],
+    "aria-invalid": invalidFields.has(key) || undefined,
     onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
       setValues((prev) => ({ ...prev, [key]: e.target.value })),
   });
@@ -36,10 +45,12 @@ export default function TrackingForm() {
     e.preventDefault();
     const result = validateTrackingForm(values);
     if (!result.valid) {
+      setInvalidFields(new Set(Object.keys(result.errors)));
       setValidationMessage(status.validationError);
       setState("idle");
       return;
     }
+    setInvalidFields(new Set());
     setValidationMessage(null);
     setSending(true);
     const sendResult = await sendFormEmail("tracking", { ...values });
@@ -54,14 +65,14 @@ export default function TrackingForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="grid gap-4 sm:grid-cols-2">
+    <form onSubmit={handleSubmit} noValidate className="grid gap-4 sm:grid-cols-2">
       <div>
         <label htmlFor="loadNumber" className={labelClass}>{t.loadNumber}</label>
-        <input {...field("loadNumber")} id="loadNumber" className={inputClass} />
+        <input {...field("loadNumber")} id="loadNumber" className={inputClass("loadNumber")} />
       </div>
       <div>
         <label htmlFor="email" className={labelClass}>{t.email}</label>
-        <input {...field("email")} id="email" type="email" className={inputClass} />
+        <input {...field("email")} id="email" type="email" className={inputClass("email")} />
       </div>
 
       <div className="sm:col-span-2">
