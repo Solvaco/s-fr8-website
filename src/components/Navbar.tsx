@@ -26,7 +26,7 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Link href="/" className="flex items-center gap-2.5">
           <Image src="/logo.png" alt="Solvaco" width={32} height={32} className="h-8 w-8" />
-          <span className="text-[15px] font-semibold tracking-tight text-ink">Solvaco Freight</span>
+          <span className="text-sm font-semibold tracking-tight text-ink">Solvaco Freight</span>
         </Link>
 
         <nav className="hidden items-center gap-7 text-sm font-medium text-ink/70 md:flex">
