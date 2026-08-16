@@ -11,12 +11,12 @@ function TrackingPreviewCard() {
   const loadLabel = lang === "fr" ? "Charge" : "Load";
 
   return (
-    <div className="w-full max-w-sm rounded-[1.75rem] border border-white/10 bg-white/[0.06] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-md">
-      <div className="flex items-center justify-between text-xs text-white/50">
+    <div className="w-full max-w-sm rounded-[1.75rem] border border-line bg-panel p-6 shadow-[0_20px_40px_-15px_rgba(28,22,17,0.12)]">
+      <div className="flex items-center justify-between text-xs text-muted">
         <span className="font-mono tracking-tight">{loadLabel} · LD-4471</span>
-        <span className="flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1 font-medium text-white/80">
+        <span className="flex items-center gap-1.5 rounded-full bg-accent/10 px-2.5 py-1 font-medium text-accent-dark">
           <motion.span
-            className="h-1.5 w-1.5 rounded-full bg-emerald-400"
+            className="h-1.5 w-1.5 rounded-full bg-success"
             animate={{ opacity: [1, 0.3, 1] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
           />
@@ -24,33 +24,33 @@ function TrackingPreviewCard() {
         </span>
       </div>
 
-      <div className="mt-6 flex items-center justify-between text-sm font-semibold text-white">
+      <div className="mt-6 flex items-center justify-between text-sm font-semibold text-ink">
         <span>Montréal</span>
         <span>Chicago</span>
       </div>
 
-      <div className="relative mt-3 h-px w-full bg-white/15">
-        <div className="absolute inset-y-0 left-0 w-2/3 bg-white/50" />
+      <div className="relative mt-3 h-px w-full bg-line">
+        <div className="absolute inset-y-0 left-0 w-2/3 bg-accent/50" />
         <motion.div
-          className="absolute -top-2.5 flex h-5 w-5 items-center justify-center rounded-full bg-white text-ink"
+          className="absolute -top-2.5 flex h-5 w-5 items-center justify-center rounded-full bg-accent text-white"
           initial={{ left: "0%" }}
           animate={{ left: ["0%", "63%", "63%"] }}
           transition={{ duration: 3, repeat: Infinity, repeatDelay: 1.5, ease: [0.16, 1, 0.3, 1] }}
         >
           <Truck size={12} weight="fill" />
         </motion.div>
-        <MapPin size={14} weight="fill" className="absolute -top-[7px] left-0 text-white/70" />
-        <CircleDashed size={14} weight="bold" className="absolute -top-[7px] right-0 text-white/40" />
+        <MapPin size={14} weight="fill" className="absolute -top-[7px] left-0 text-accent" />
+        <CircleDashed size={14} weight="bold" className="absolute -top-[7px] right-0 text-muted/50" />
       </div>
 
-      <div className="mt-6 grid grid-cols-2 gap-3 border-t border-white/10 pt-4 text-xs">
+      <div className="mt-6 grid grid-cols-2 gap-3 border-t border-line pt-4 text-xs">
         <div>
-          <div className="text-white/40">{lang === "fr" ? "Équipement" : "Equipment"}</div>
-          <div className="mt-0.5 font-medium text-white">Dry Van 53'</div>
+          <div className="text-muted">{lang === "fr" ? "Équipement" : "Equipment"}</div>
+          <div className="mt-0.5 font-medium text-ink">Dry Van 53'</div>
         </div>
         <div>
-          <div className="text-white/40">ETA</div>
-          <div className="mt-0.5 font-medium text-white">
+          <div className="text-muted">ETA</div>
+          <div className="mt-0.5 font-medium text-ink">
             {lang === "fr" ? "Demain, 14h" : "Tomorrow, 2 PM"}
           </div>
         </div>

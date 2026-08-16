@@ -10,7 +10,7 @@ export default function AboutPage() {
   return (
     <section className="mx-auto max-w-[1400px] px-4 py-20 sm:px-6 md:py-28">
       <div className="grid grid-cols-1 gap-10 md:grid-cols-[2fr_3fr] md:gap-16">
-        <h1 className="text-4xl font-semibold leading-none tracking-tighter sm:text-5xl">
+        <h1 className="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
           {t.title}
         </h1>
         <div className="border-l-2 border-accent/30 pl-6">

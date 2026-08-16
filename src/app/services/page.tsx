@@ -19,7 +19,7 @@ export default function ServicesPage() {
 
   return (
     <section className="mx-auto max-w-[1400px] px-4 py-20 sm:px-6 md:py-28">
-      <h1 className="max-w-2xl text-4xl font-semibold leading-none tracking-tighter sm:text-5xl">
+      <h1 className="max-w-2xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
         {t.title}
       </h1>
       <p className="mt-4 max-w-[52ch] text-base leading-relaxed text-muted">{t.subtitle}</p>

@@ -14,11 +14,8 @@ export default function Hero() {
   const t = translations[lang].hero;
 
   return (
-    <section className="relative overflow-hidden bg-dark text-white">
-      <div
-        className="pointer-events-none absolute inset-0 grain opacity-60"
-        aria-hidden
-      />
+    <section className="relative overflow-hidden bg-paper text-ink">
+      <div className="pointer-events-none absolute inset-0 grain opacity-70" aria-hidden />
       <div className="relative mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-12 px-4 py-20 sm:px-6 md:grid-cols-[3fr_2fr] md:py-28 lg:gap-20">
         <motion.div
           variants={staggerContainer}
@@ -26,19 +23,13 @@ export default function Hero() {
           animate="visible"
           className="flex flex-col items-start text-left"
         >
-          <motion.span
-            variants={fadeUp}
-            className="mb-5 inline-block rounded-full border border-white/15 px-3.5 py-1 text-xs font-medium uppercase tracking-widest text-white/60"
-          >
-            {t.badge}
-          </motion.span>
           <motion.h1
             variants={fadeUp}
-            className="text-4xl font-semibold leading-none tracking-tighter sm:text-5xl md:text-6xl"
+            className="text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl"
           >
-            {t.title} <span className="text-accent-light">{t.titleHighlight}</span>
+            {t.title} <span className="text-accent">{t.titleHighlight}</span>
           </motion.h1>
-          <motion.p variants={fadeUp} className="mt-6 max-w-[48ch] text-base leading-relaxed text-white/60">
+          <motion.p variants={fadeUp} className="mt-6 max-w-[48ch] text-base leading-relaxed text-muted">
             {t.subtitle}
           </motion.p>
           <motion.div variants={fadeUp} className="mt-10 flex flex-wrap items-center gap-4">
@@ -51,13 +42,13 @@ export default function Hero() {
             </MagneticButton>
             <Link
               href="/devenir-carrier"
-              className="rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white/90 transition-colors hover:border-white/40 hover:bg-white/5 active:scale-[0.98]"
+              className="rounded-full border border-ink/15 px-6 py-3 text-sm font-semibold text-ink/85 transition-colors hover:border-ink/30 hover:bg-ink/5 active:scale-[0.98]"
             >
               {t.ctaCarrier}
             </Link>
             <Link
               href="/suivi"
-              className="text-sm font-semibold text-white/60 underline decoration-white/20 underline-offset-4 transition-colors hover:text-white/90"
+              className="text-sm font-semibold text-muted underline decoration-ink/20 underline-offset-4 transition-colors hover:text-ink"
             >
               {t.ctaTracking}
             </Link>
