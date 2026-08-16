@@ -2,7 +2,15 @@
 "use client";
 
 import Hero from "@/components/Hero";
+import ServicesTeaser from "@/components/ServicesTeaser";
+import Differentiator from "@/components/Differentiator";
 
 export default function HomePage() {
-  return <Hero />;
+  return (
+    <>
+      <Hero />
+      <ServicesTeaser />
+      <Differentiator />
+    </>
+  );
 }

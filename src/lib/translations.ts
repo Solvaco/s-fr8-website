@@ -12,7 +12,6 @@ export const translations = {
       cta: "Obtenir une soumission",
     },
     hero: {
-      badge: "Courtage en Transport · Canada · USA",
       title: "Votre Fret,",
       titleHighlight: "Livré Sans Compromis",
       subtitle:
@@ -42,10 +41,46 @@ export const translations = {
           desc: "Expertise douanière et réseau de carriers des deux côtés de la frontière.",
         },
       ],
+      teaserCta: "Voir tous les services",
+    },
+    differentiator: {
+      title: "Pourquoi Solvaco Freight",
+      body: "Réactivité et couverture Canada–USA : un réseau de carriers et une expertise douanière des deux côtés de la frontière, pour répondre plus vite qu'un courtier régional.",
+      points: [
+        {
+          title: "Réactif",
+          desc: "Réponse rapide à chaque demande de soumission ou candidature carrier.",
+        },
+        {
+          title: "Cross-border CA/US",
+          desc: "Réseau de carriers et connaissance douanière des deux côtés de la frontière.",
+        },
+        {
+          title: "Famille Solvaco",
+          desc: "Même rigueur et souci du service que la division construction, établie de longue date.",
+        },
+      ],
+      cta: "Demander une soumission",
     },
     about: {
       title: "À propos de Solvaco Freight",
       body: "Solvaco Freight est la division logistique de la famille Solvaco. Nous mettons en relation shippers et carriers avec la même rigueur et le même souci du service qui font la réputation de Solvaco depuis ses débuts.",
+      valuesTitle: "Comment on travaille",
+      values: [
+        {
+          title: "Contact direct",
+          desc: "Vous parlez à une vraie personne par courriel ou téléphone, pas à un centre d'appels.",
+        },
+        {
+          title: "Réactivité",
+          desc: "On répond rapidement à chaque demande de soumission, candidature carrier ou suivi de charge.",
+        },
+        {
+          title: "Couverture CA/US",
+          desc: "Réseau de carriers et expertise douanière des deux côtés de la frontière, pour du dry van, reefer et flatbed.",
+        },
+      ],
+      closing: "Une question avant de soumettre une demande? Écrivez-nous à info@solvaco.com ou appelez au 514-922-7848.",
     },
     carrier: {
       title: "Devenir Carrier",
@@ -111,7 +146,6 @@ export const translations = {
       cta: "Get a Quote",
     },
     hero: {
-      badge: "Freight Brokerage · Canada · USA",
       title: "Your Freight,",
       titleHighlight: "Delivered Without Compromise",
       subtitle:
@@ -141,10 +175,46 @@ export const translations = {
           desc: "Customs expertise and a carrier network on both sides of the border.",
         },
       ],
+      teaserCta: "View all services",
+    },
+    differentiator: {
+      title: "Why Solvaco Freight",
+      body: "Responsiveness and Canada–USA coverage: a carrier network and customs expertise on both sides of the border, so we respond faster than a regional-only broker.",
+      points: [
+        {
+          title: "Responsive",
+          desc: "Fast reply to every quote request or carrier application.",
+        },
+        {
+          title: "Cross-border CA/US",
+          desc: "Carrier network and customs know-how on both sides of the border.",
+        },
+        {
+          title: "Solvaco family",
+          desc: "Same rigor and commitment to service as the long-established construction division.",
+        },
+      ],
+      cta: "Request a Quote",
     },
     about: {
       title: "About Solvaco Freight",
       body: "Solvaco Freight is the logistics division of the Solvaco family. We connect shippers and carriers with the same rigor and commitment to service that Solvaco has been known for since day one.",
+      valuesTitle: "How we work",
+      values: [
+        {
+          title: "Direct contact",
+          desc: "You talk to a real person by email or phone, not a call center.",
+        },
+        {
+          title: "Responsiveness",
+          desc: "We reply quickly to every quote request, carrier application, or tracking request.",
+        },
+        {
+          title: "CA/US coverage",
+          desc: "Carrier network and customs expertise on both sides of the border, for dry van, reefer, and flatbed.",
+        },
+      ],
+      closing: "Question before you submit a request? Email us at info@solvaco.com or call 514-922-7848.",
     },
     carrier: {
       title: "Become a Carrier",
