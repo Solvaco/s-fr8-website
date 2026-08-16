@@ -19,6 +19,7 @@ export default function CarrierForm() {
   const [state, setState] = useState<FormStatusState>("idle");
   const [sending, setSending] = useState(false);
   const [validationMessage, setValidationMessage] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string>(status.errorSend);
 
   const field = (key: keyof CarrierFormValues) => ({
     id: key,
@@ -39,9 +40,12 @@ export default function CarrierForm() {
     setSending(true);
     const sendResult = await sendFormEmail("carrier", { ...values });
     setSending(false);
-    setState(sendResult.status === "sent" ? "success" : "error");
     if (sendResult.status === "sent") {
+      setState("success");
       setValues(EMPTY);
+    } else {
+      setErrorMessage(sendResult.status === "not-configured" ? status.errorConfig : status.errorSend);
+      setState("error");
     }
   };
 
@@ -69,7 +73,7 @@ export default function CarrierForm() {
       </div>
 
       {validationMessage && <FormStatus state="error" successText="" errorText={validationMessage} />}
-      <FormStatus state={state} successText={status.success} errorText={status.errorSend} />
+      <FormStatus state={state} successText={status.success} errorText={errorMessage} />
 
       <button
         type="submit"

@@ -28,6 +28,7 @@ export default function QuoteForm() {
   const [state, setState] = useState<FormStatusState>("idle");
   const [sending, setSending] = useState(false);
   const [validationMessage, setValidationMessage] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string>(status.errorSend);
 
   const field = (key: keyof QuoteFormValues) => ({
     id: key,
@@ -48,9 +49,12 @@ export default function QuoteForm() {
     setSending(true);
     const sendResult = await sendFormEmail("quote", { ...values });
     setSending(false);
-    setState(sendResult.status === "sent" ? "success" : "error");
     if (sendResult.status === "sent") {
+      setState("success");
       setValues(EMPTY);
+    } else {
+      setErrorMessage(sendResult.status === "not-configured" ? status.errorConfig : status.errorSend);
+      setState("error");
     }
   };
 
@@ -90,7 +94,7 @@ export default function QuoteForm() {
       </div>
 
       {validationMessage && <FormStatus state="error" successText="" errorText={validationMessage} />}
-      <FormStatus state={state} successText={status.success} errorText={status.errorSend} />
+      <FormStatus state={state} successText={status.success} errorText={errorMessage} />
 
       <button
         type="submit"
