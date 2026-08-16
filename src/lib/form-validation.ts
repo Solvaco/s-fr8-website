@@ -5,6 +5,7 @@ export type ValidationResult = {
 };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const POSITIVE_NUMBER_RE = /^[0-9]+(\.[0-9]+)?$/;
 
 function requireFields(
   values: Record<string, string>,
@@ -43,6 +44,9 @@ export function validateQuoteForm(values: QuoteFormValues): ValidationResult {
   ]);
   if (!errors.email && !EMAIL_RE.test(values.email)) {
     errors.email = "invalid";
+  }
+  if (!errors.weight && !POSITIVE_NUMBER_RE.test(values.weight.trim())) {
+    errors.weight = "invalid";
   }
   return { valid: Object.keys(errors).length === 0, errors };
 }

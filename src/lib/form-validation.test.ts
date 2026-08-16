@@ -29,6 +29,12 @@ describe("validateQuoteForm", () => {
     expect(result.valid).toBe(false);
     expect(result.errors.email).toBeDefined();
   });
+
+  it("fails on a non-numeric weight", () => {
+    const result = validateQuoteForm({ ...valid, weight: "abc" });
+    expect(result.valid).toBe(false);
+    expect(result.errors.weight).toBeDefined();
+  });
 });
 
 describe("validateCarrierForm", () => {
