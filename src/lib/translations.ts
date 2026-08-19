@@ -15,7 +15,7 @@ export const translations = {
       title: "Votre Fret,",
       titleHighlight: "Livré Sans Compromis",
       subtitle:
-        "Dry van, reefer, flatbed et cross-border CA/US — SFR8 connecte shippers et transporteurs avec réactivité et fiabilité.",
+        "Dry van, reefer, flatbed et cross-border CA/US — S-FR8 connecte shippers et transporteurs avec réactivité et fiabilité.",
       ctaQuote: "Demander une soumission",
       ctaCarrier: "Devenir Transporteur",
       ctaTracking: "Suivre une charge",
@@ -52,7 +52,7 @@ export const translations = {
       teaserCta: "Voir tous les services",
     },
     differentiator: {
-      title: "Pourquoi SFR8",
+      title: "Pourquoi S-FR8",
       body: "Réactivité et couverture Canada–USA : un réseau de transporteurs et une expertise douanière des deux côtés de la frontière, pour répondre plus vite qu'un courtier régional.",
       points: [
         {
@@ -71,8 +71,8 @@ export const translations = {
       cta: "Demander une soumission",
     },
     about: {
-      title: "À propos de SFR8",
-      body: "SFR8 est la division logistique de la famille Solvaco. Nous mettons en relation shippers et transporteurs avec la même rigueur et le même souci du service qui font la réputation de Solvaco depuis ses débuts.",
+      title: "À propos de S-FR8",
+      body: "S-FR8 est la division logistique de la famille Solvaco. Nous mettons en relation shippers et transporteurs avec la même rigueur et le même souci du service qui font la réputation de Solvaco depuis ses débuts.",
       valuesTitle: "Comment on travaille",
       values: [
         {
@@ -173,7 +173,7 @@ export const translations = {
       title: "Your Freight,",
       titleHighlight: "Delivered Without Compromise",
       subtitle:
-        "Dry van, reefer, flatbed and CA/US cross-border — SFR8 connects shippers and carriers with responsiveness and reliability.",
+        "Dry van, reefer, flatbed and CA/US cross-border — S-FR8 connects shippers and carriers with responsiveness and reliability.",
       ctaQuote: "Request a Quote",
       ctaCarrier: "Become a Carrier",
       ctaTracking: "Track a Load",
@@ -210,7 +210,7 @@ export const translations = {
       teaserCta: "View all services",
     },
     differentiator: {
-      title: "Why SFR8",
+      title: "Why S-FR8",
       body: "Responsiveness and Canada–USA coverage: a carrier network and customs expertise on both sides of the border, so we respond faster than a regional-only broker.",
       points: [
         {
@@ -229,8 +229,8 @@ export const translations = {
       cta: "Request a Quote",
     },
     about: {
-      title: "About SFR8",
-      body: "SFR8 is the logistics division of the Solvaco family. We connect shippers and carriers with the same rigor and commitment to service that Solvaco has been known for since day one.",
+      title: "About S-FR8",
+      body: "S-FR8 is the logistics division of the Solvaco family. We connect shippers and carriers with the same rigor and commitment to service that Solvaco has been known for since day one.",
       valuesTitle: "How we work",
       values: [
         {

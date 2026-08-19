@@ -11,7 +11,7 @@ describe("AboutPage", () => {
         <AboutPage />
       </LanguageProvider>
     );
-    expect(screen.getByRole("heading", { level: 1 }).textContent).toBe("À propos de SFR8");
+    expect(screen.getByRole("heading", { level: 1 }).textContent).toBe("À propos de S-FR8");
     expect(screen.getByText(/famille Solvaco/)).toBeInTheDocument();
   });
 });

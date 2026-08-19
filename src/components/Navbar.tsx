@@ -48,7 +48,7 @@ export default function Navbar() {
       >
         <Link href="/" className="flex items-center gap-2">
           <Image src="/logo-icon.png" alt="" width={44} height={44} className="h-11 w-11" />
-          <span className="text-lg font-bold tracking-tight text-ink">SFR8</span>
+          <span className="text-lg font-bold tracking-tight text-ink">S-FR8</span>
         </Link>
 
         <nav className="hidden items-center gap-7 text-sm font-medium text-ink/70 md:flex">
