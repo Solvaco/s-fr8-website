@@ -1,5 +1,6 @@
 "use client";
 
+import { Fragment } from "react";
 import { motion } from "framer-motion";
 
 const wordVariant = {
@@ -25,19 +26,21 @@ export default function WordReveal({
       viewport={{ once: true, margin: "-40px" }}
       style={{ display: "inline" }}
     >
-      {segments.map((segment, si) =>
-        segment.text.split(" ").map((word, wi) => (
-          <motion.span
-            key={`${si}-${wi}`}
-            variants={wordVariant}
-            className={segment.className}
-            style={{ display: "inline-block" }}
-          >
-            {word}
-            {wi < segment.text.split(" ").length - 1 ? " " : si < segments.length - 1 ? " " : ""}
-          </motion.span>
-        ))
-      )}
+      {segments.map((segment, si) => {
+        const words = segment.text.split(" ");
+        return words.map((word, wi) => (
+          <Fragment key={`${si}-${wi}`}>
+            <motion.span
+              variants={wordVariant}
+              className={segment.className}
+              style={{ display: "inline-block" }}
+            >
+              {word}
+            </motion.span>
+            {wi < words.length - 1 || si < segments.length - 1 ? " " : ""}
+          </Fragment>
+        ));
+      })}
     </motion.span>
   );
 }
