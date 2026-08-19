@@ -23,13 +23,19 @@ type PhotonFeature = {
   };
 };
 
+// Roughly Canada + continental US — Photon's global index otherwise ranks
+// short/ambiguous queries (e.g. a house number + "av") against the whole
+// planet and returns results like Spanish bus stops for a Quebec address.
+const NORTH_AMERICA_BBOX = "-141,15,-52,75";
+
 // Free, no-API-key address search via Komoot's Photon (built on OpenStreetMap
 // data, designed for autocomplete-while-typing — unlike Nominatim, whose
 // usage policy explicitly discourages that). Swap for Mapbox/Google Places
 // before any high-volume production use.
 export async function searchAddress(
   query: string,
-  signal?: AbortSignal
+  signal?: AbortSignal,
+  lang: "fr" | "en" = "fr"
 ): Promise<AddressSuggestion[]> {
   const trimmed = query.trim();
   if (trimmed.length < 3) return [];
@@ -37,6 +43,8 @@ export async function searchAddress(
   const url = new URL("https://photon.komoot.io/api/");
   url.searchParams.set("q", trimmed);
   url.searchParams.set("limit", "5");
+  url.searchParams.set("lang", lang);
+  url.searchParams.set("bbox", NORTH_AMERICA_BBOX);
   url.searchParams.set("layer", "house");
   url.searchParams.append("layer", "street");
   url.searchParams.append("layer", "city");

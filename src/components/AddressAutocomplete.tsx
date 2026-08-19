@@ -3,6 +3,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { searchAddress, type AddressSuggestion } from "@/lib/address-search";
+import { useLanguage } from "@/lib/language-context";
 
 const inputClass =
   "w-full rounded-xl border bg-panel px-3.5 py-2.5 text-sm text-ink outline-none transition-colors placeholder:text-muted/60 focus:ring-2";
@@ -22,6 +23,7 @@ export default function AddressAutocomplete({
   onChange: (text: string) => void;
   onSelect: (suggestion: AddressSuggestion) => void;
 }) {
+  const { lang } = useLanguage();
   const [suggestions, setSuggestions] = useState<AddressSuggestion[]>([]);
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
@@ -35,7 +37,7 @@ export default function AddressAutocomplete({
     const controller = new AbortController();
     const timer = setTimeout(async () => {
       try {
-        const results = await searchAddress(value, controller.signal);
+        const results = await searchAddress(value, controller.signal, lang);
         setSuggestions(results);
         setOpen(results.length > 0);
         setActiveIndex(-1);
@@ -48,7 +50,7 @@ export default function AddressAutocomplete({
       clearTimeout(timer);
       controller.abort();
     };
-  }, [value]);
+  }, [value, lang]);
 
   useEffect(() => {
     function onClickOutside(e: MouseEvent) {
