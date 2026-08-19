@@ -1,26 +1,14 @@
 // src/app/page.tsx
-"use client";
+import type { Metadata } from "next";
+import HomeView from "./HomeView";
 
-import Hero from "@/components/Hero";
-import ServicesTeaser from "@/components/ServicesTeaser";
-import Differentiator from "@/components/Differentiator";
-import PageBanner from "@/components/PageBanner";
-import { useLanguage } from "@/lib/language-context";
+export const metadata: Metadata = {
+  title: "S-FR8 — Votre fret, livré sans compromis",
+  description:
+    "Dry van, reefer, flatbed et cross-border CA/US — S-FR8 connecte shippers et transporteurs avec réactivité et fiabilité.",
+  alternates: { canonical: "/" },
+};
 
 export default function HomePage() {
-  const { lang } = useLanguage();
-
-  return (
-    <>
-      <Hero />
-      <ServicesTeaser />
-      <div className="mx-auto max-w-[1400px] px-4 pb-20 sm:px-6 md:pb-28">
-        <PageBanner
-          src="/images/containers-orange.jpg"
-          alt={lang === "fr" ? "Conteneurs de fret empilés" : "Stacked freight containers"}
-        />
-      </div>
-      <Differentiator />
-    </>
-  );
+  return <HomeView />;
 }

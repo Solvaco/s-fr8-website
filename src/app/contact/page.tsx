@@ -1,24 +1,13 @@
-// src/app/contact/page.tsx
-"use client";
+import type { Metadata } from "next";
+import ContactView from "./ContactView";
 
-import { useLanguage } from "@/lib/language-context";
-import { translations } from "@/lib/translations";
-import QuoteForm from "@/components/QuoteForm";
-import WordReveal from "@/components/WordReveal";
+export const metadata: Metadata = {
+  title: "Demander une soumission",
+  description:
+    "Décrivez votre charge, on vous répond rapidement. Dry van, reefer, flatbed, cross-border CA/US.",
+  alternates: { canonical: "/contact" },
+};
 
 export default function ContactPage() {
-  const { lang } = useLanguage();
-  const t = translations[lang].contact;
-
-  return (
-    <section className="mx-auto max-w-3xl px-4 py-20 sm:px-6 md:py-28">
-      <h1 className="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
-        <WordReveal segments={[{ text: t.title }]} />
-      </h1>
-      <p className="mt-4 max-w-[52ch] text-base leading-relaxed text-muted">{t.subtitle}</p>
-      <div className="mt-10">
-        <QuoteForm />
-      </div>
-    </section>
-  );
+  return <ContactView />;
 }
