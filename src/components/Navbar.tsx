@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -13,6 +14,21 @@ export default function Navbar() {
   const { lang } = useLanguage();
   const pathname = usePathname();
   const t = translations[lang].nav;
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 24);
+        ticking = false;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const links = [
     { href: "/", label: t.home },
@@ -25,7 +41,11 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur-md relative">
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-4 py-3 sm:px-6">
+      <div
+        className={`mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-4 transition-[padding] duration-200 ease-out sm:px-6 ${
+          scrolled ? "py-2" : "py-3"
+        }`}
+      >
         <Link href="/" className="flex items-center gap-2.5">
           <Image src="/logo.png" alt="" width={32} height={32} className="h-8 w-8" />
           <span className="text-sm font-semibold tracking-tight text-ink">Solvaco Freight</span>

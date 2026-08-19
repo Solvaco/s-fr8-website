@@ -8,6 +8,7 @@ import { translations } from "@/lib/translations";
 import { fadeUp, staggerContainer } from "@/lib/motion-variants";
 import MagneticButton from "./MagneticButton";
 import TrackingPreviewCard from "./TrackingPreviewCard";
+import WordReveal from "./WordReveal";
 
 export default function Hero() {
   const { lang } = useLanguage();
@@ -23,12 +24,14 @@ export default function Hero() {
           animate="visible"
           className="flex flex-col items-start text-left"
         >
-          <motion.h1
-            variants={fadeUp}
-            className="text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl"
-          >
-            {t.title} <span className="text-accent">{t.titleHighlight}</span>
-          </motion.h1>
+          <h1 className="text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
+            <WordReveal
+              segments={[
+                { text: t.title },
+                { text: t.titleHighlight, className: "text-accent" },
+              ]}
+            />
+          </h1>
           <motion.p variants={fadeUp} className="mt-6 max-w-[48ch] text-base leading-relaxed text-muted">
             {t.subtitle}
           </motion.p>

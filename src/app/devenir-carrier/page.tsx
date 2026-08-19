@@ -5,6 +5,7 @@ import { useLanguage } from "@/lib/language-context";
 import { translations } from "@/lib/translations";
 import CarrierForm from "@/components/CarrierForm";
 import PageBanner from "@/components/PageBanner";
+import WordReveal from "@/components/WordReveal";
 
 export default function CarrierPage() {
   const { lang } = useLanguage();
@@ -12,7 +13,9 @@ export default function CarrierPage() {
 
   return (
     <section className="mx-auto max-w-3xl px-4 py-20 sm:px-6 md:py-28">
-      <h1 className="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">{t.title}</h1>
+      <h1 className="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+        <WordReveal segments={[{ text: t.title }]} />
+      </h1>
       <p className="mt-4 max-w-[52ch] text-base leading-relaxed text-muted">{t.subtitle}</p>
       <PageBanner
         src="/images/trailer-sunset.jpg"
