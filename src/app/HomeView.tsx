@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import ServicesTeaser from "@/components/ServicesTeaser";
 import Differentiator from "@/components/Differentiator";
 import PageBanner from "@/components/PageBanner";
+import FAQ from "@/components/FAQ";
 import { useLanguage } from "@/lib/language-context";
 
 export default function HomeView() {
@@ -20,6 +21,7 @@ export default function HomeView() {
         />
       </div>
       <Differentiator />
+      <FAQ />
     </>
   );
 }

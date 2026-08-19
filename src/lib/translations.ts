@@ -155,6 +155,35 @@ export const translations = {
       errorSend: "L'envoi a échoué. Réessayez ou appelez-nous directement.",
       validationError: "Veuillez remplir tous les champs requis correctement.",
     },
+    faq: {
+      title: "Questions fréquentes",
+      items: [
+        {
+          q: "Quels types de chargement offrez-vous?",
+          a: "Dry van, reefer, flatbed, cross-border CA/US, LTL et service spécialisé pour les charges hors-normes ou projets industriels.",
+        },
+        {
+          q: "Quelle est la différence entre FTL et LTL?",
+          a: "FTL (chargement complet) réserve un camion entier pour votre charge. LTL (chargement partiel) consolide votre charge avec d'autres, facturé selon l'espace et le poids réels — généralement plus économique pour les petits volumes.",
+        },
+        {
+          q: "Dans quelles régions opérez-vous?",
+          a: "Partout au Canada et aux États-Unis, incluant le passage transfrontalier CA/US avec expertise douanière.",
+        },
+        {
+          q: "Comment obtenir une soumission?",
+          a: "Remplissez le formulaire de demande de soumission avec les détails de votre charge (origine, destination, type, poids). Notre équipe répond rapidement.",
+        },
+        {
+          q: "Comment devenir transporteur partenaire?",
+          a: "Remplissez le formulaire \"Devenir Transporteur\" avec votre type d'équipement et votre zone desservie pour être contacté.",
+        },
+        {
+          q: "Comment suivre ma charge?",
+          a: "Entrez votre numéro de charge dans la page Suivi de charge. Notre équipe répond par courriel avec le statut.",
+        },
+      ],
+    },
     footer: {
       rights: "Tous droits réservés.",
     },
@@ -312,6 +341,35 @@ export const translations = {
       errorConfig: "The form isn't configured yet. Add the EmailJS keys to .env.local.",
       errorSend: "Delivery failed. Please try again or call us directly.",
       validationError: "Please fill in all required fields correctly.",
+    },
+    faq: {
+      title: "Frequently Asked Questions",
+      items: [
+        {
+          q: "What load types do you handle?",
+          a: "Dry van, reefer, flatbed, CA/US cross-border, LTL, and specialized service for oversized or industrial project loads.",
+        },
+        {
+          q: "What's the difference between FTL and LTL?",
+          a: "FTL (full truckload) reserves an entire truck for your load. LTL (less than truckload) consolidates your load with others, billed by actual space and weight — usually more economical for smaller volumes.",
+        },
+        {
+          q: "What areas do you serve?",
+          a: "All of Canada and the United States, including CA/US cross-border with customs expertise.",
+        },
+        {
+          q: "How do I get a quote?",
+          a: "Fill out the quote request form with your shipment details (origin, destination, type, weight). Our team replies quickly.",
+        },
+        {
+          q: "How do I become a carrier partner?",
+          a: "Fill out the \"Become a Carrier\" form with your equipment type and service area to get contacted.",
+        },
+        {
+          q: "How do I track my load?",
+          a: "Enter your load number on the Track a Load page. Our team replies by email with the status.",
+        },
+      ],
     },
     footer: {
       rights: "All rights reserved.",

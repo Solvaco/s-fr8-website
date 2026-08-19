@@ -46,6 +46,25 @@ const organizationJsonLd = {
     contactType: "customer service",
     areaServed: ["CA", "US"],
   },
+  areaServed: [
+    { "@type": "Country", name: "Canada" },
+    { "@type": "Country", name: "United States" },
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Services de courtage en transport",
+    itemListElement: [
+      "Dry Van",
+      "Reefer",
+      "Flatbed",
+      "Cross-border CA/US",
+      "LTL",
+      "Service spécialisé",
+    ].map((serviceName) => ({
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: serviceName },
+    })),
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
