@@ -40,7 +40,7 @@ Responsiveness and cross-border (Canada + USA) coverage: a carrier network and c
 
 - Name: **Solvaco Freight**, the logistics division of the Solvaco family (construction/béton company is the sibling brand).
 - Same logo mark as the construction site, but this site's palette is deliberately more colorful than that site's gold/dark theme — not a literal visual match, a family relationship.
-- Contact: info@solvaco.com, 514-922-7848 (shared with the construction division).
+- Contact: info@s-fr8.com, 514-475-8557 (dedicated S-FR8 contact info, separate from the construction division).
 
 ## Evidence on Hand
 

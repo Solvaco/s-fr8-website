@@ -56,14 +56,14 @@ export default function AboutView() {
       </div>
 
       <p className="mt-16 border-t border-line pt-8 text-sm text-muted">
-        {t.closing.split("info@solvaco.com").map((part, i, arr) =>
+        {t.closing.split("info@s-fr8.com").map((part, i, arr) =>
           i === arr.length - 1 ? (
             part
           ) : (
             <span key={i}>
               {part}
-              <a href="mailto:info@solvaco.com" className="text-accent hover:text-accent-dark">
-                info@solvaco.com
+              <a href="mailto:info@s-fr8.com" className="text-accent hover:text-accent-dark">
+                info@s-fr8.com
               </a>
             </span>
           )

@@ -88,7 +88,7 @@ export const translations = {
           desc: "Réseau de transporteurs et expertise douanière des deux côtés de la frontière, pour du dry van, reefer et flatbed.",
         },
       ],
-      closing: "Une question avant de soumettre une demande? Écrivez-nous à info@solvaco.com ou appelez au 514-922-7848.",
+      closing: "Une question avant de soumettre une demande? Écrivez-nous à info@s-fr8.com ou appelez au 514-475-8557.",
     },
     carrier: {
       title: "Devenir Transporteur",
@@ -275,7 +275,7 @@ export const translations = {
           desc: "Carrier network and customs expertise on both sides of the border, for dry van, reefer, and flatbed.",
         },
       ],
-      closing: "Question before you submit a request? Email us at info@solvaco.com or call 514-922-7848.",
+      closing: "Question before you submit a request? Email us at info@s-fr8.com or call 514-475-8557.",
     },
     carrier: {
       title: "Become a Carrier",

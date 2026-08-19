@@ -41,8 +41,8 @@ const organizationJsonLd = {
   description: SITE_DESCRIPTION,
   contactPoint: {
     "@type": "ContactPoint",
-    email: "info@solvaco.com",
-    telephone: "+1-514-922-7848",
+    email: "info@s-fr8.com",
+    telephone: "+1-514-475-8557",
     contactType: "customer service",
     areaServed: ["CA", "US"],
   },

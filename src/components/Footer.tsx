@@ -14,13 +14,13 @@ export default function Footer() {
       <div className="mx-auto flex max-w-[1400px] flex-col items-center gap-4 px-4 text-center sm:px-6">
         <span className="text-sm font-semibold tracking-tight">S-FR8</span>
         <div className="flex items-center gap-6 text-sm text-white/60">
-          <a href="mailto:info@solvaco.com" className="flex items-center gap-1.5 transition-colors hover:text-white">
+          <a href="mailto:info@s-fr8.com" className="flex items-center gap-1.5 transition-colors hover:text-white">
             <EnvelopeSimple size={15} weight="regular" />
-            info@solvaco.com
+            info@s-fr8.com
           </a>
-          <a href="tel:5149227848" className="flex items-center gap-1.5 transition-colors hover:text-white">
+          <a href="tel:5144758557" className="flex items-center gap-1.5 transition-colors hover:text-white">
             <Phone size={15} weight="regular" />
-            514-922-7848
+            514-475-8557
           </a>
         </div>
         <span className="text-xs text-white/30">

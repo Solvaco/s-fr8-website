@@ -11,7 +11,7 @@ describe("Footer", () => {
         <Footer />
       </LanguageProvider>
     );
-    expect(screen.getByText("info@solvaco.com")).toBeInTheDocument();
-    expect(screen.getByText("514-922-7848")).toBeInTheDocument();
+    expect(screen.getByText("info@s-fr8.com")).toBeInTheDocument();
+    expect(screen.getByText("514-475-8557")).toBeInTheDocument();
   });
 });
