@@ -2,12 +2,19 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { motion, useAnimationControls } from "framer-motion";
 import { useLanguage } from "@/lib/language-context";
 import { translations } from "@/lib/translations";
 import { validateQuoteForm, QuoteFormValues } from "@/lib/form-validation";
 import { sendFormEmail } from "@/lib/send-email";
 import FormStatus, { FormStatusState } from "./FormStatus";
+
+// Leaflet touches `window` at import time — must never run during SSR.
+const RouteMap = dynamic(() => import("./RouteMap"), {
+  ssr: false,
+  loading: () => <div className="h-64 animate-pulse rounded-2xl border border-line bg-panel" />,
+});
 
 const EMPTY: QuoteFormValues = {
   name: "",
@@ -131,6 +138,9 @@ export default function QuoteForm() {
         <div>
           <label htmlFor="destination" className={labelClass}>{t.destination}</label>
           <input {...field("destination")} id="destination" className={inputClass("destination")} />
+        </div>
+        <div className="sm:col-span-2">
+          <RouteMap origin={values.origin} destination={values.destination} />
         </div>
         <div>
           <label htmlFor="loadType" className={labelClass}>{t.loadType}</label>
