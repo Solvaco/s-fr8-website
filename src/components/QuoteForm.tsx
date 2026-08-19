@@ -16,6 +16,10 @@ const EMPTY: QuoteFormValues = {
   origin: "",
   destination: "",
   freightType: "",
+  loadType: "",
+  dimensions: "",
+  materialType: "",
+  palletCount: "",
   weight: "",
   date: "",
 };
@@ -125,6 +129,32 @@ export default function QuoteForm() {
         <div>
           <label htmlFor="destination" className={labelClass}>{t.destination}</label>
           <input {...field("destination")} id="destination" className={inputClass("destination")} />
+        </div>
+        <div>
+          <label htmlFor="loadType" className={labelClass}>{t.loadType}</label>
+          <select
+            {...field("loadType")}
+            id="loadType"
+            className={`${inputClass("loadType")} cursor-pointer`}
+          >
+            <option value="" disabled>
+              {t.loadTypePlaceholder}
+            </option>
+            <option value={t.loadTypeFtl}>{t.loadTypeFtl}</option>
+            <option value={t.loadTypeLtl}>{t.loadTypeLtl}</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="dimensions" className={labelClass}>{t.dimensions}</label>
+          <input {...field("dimensions")} id="dimensions" className={inputClass("dimensions")} />
+        </div>
+        <div>
+          <label htmlFor="materialType" className={labelClass}>{t.materialType}</label>
+          <input {...field("materialType")} id="materialType" className={inputClass("materialType")} />
+        </div>
+        <div>
+          <label htmlFor="palletCount" className={labelClass}>{t.palletCount}</label>
+          <input {...field("palletCount")} id="palletCount" className={inputClass("palletCount")} />
         </div>
         <div>
           <label htmlFor="weight" className={labelClass}>{t.weight}</label>

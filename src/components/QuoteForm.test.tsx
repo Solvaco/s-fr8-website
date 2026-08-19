@@ -16,6 +16,9 @@ function fillValidForm() {
   fireEvent.change(screen.getByLabelText("Origine"), { target: { value: "Montréal" } });
   fireEvent.change(screen.getByLabelText("Destination"), { target: { value: "Chicago" } });
   fireEvent.change(screen.getByLabelText("Type de charge"), { target: { value: "Dry Van" } });
+  fireEvent.change(screen.getByLabelText("Type de chargement"), {
+    target: { value: "FTL — Chargement complet" },
+  });
   fireEvent.change(screen.getByLabelText("Poids (lbs)"), { target: { value: "10000" } });
   fireEvent.change(screen.getByLabelText("Date souhaitée"), { target: { value: "2026-09-01" } });
 }

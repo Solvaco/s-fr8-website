@@ -10,6 +10,10 @@ describe("validateQuoteForm", () => {
     origin: "Montréal",
     destination: "Chicago",
     freightType: "Dry Van",
+    loadType: "FTL — Chargement complet",
+    dimensions: "",
+    materialType: "",
+    palletCount: "",
     weight: "10000",
     date: "2026-09-01",
   };
@@ -34,6 +38,16 @@ describe("validateQuoteForm", () => {
     const result = validateQuoteForm({ ...valid, weight: "abc" });
     expect(result.valid).toBe(false);
     expect(result.errors.weight).toBeDefined();
+  });
+
+  it("fails on a non-numeric pallet count", () => {
+    const result = validateQuoteForm({ ...valid, palletCount: "a few" });
+    expect(result.valid).toBe(false);
+    expect(result.errors.palletCount).toBeDefined();
+  });
+
+  it("passes when optional fields (dimensions, material, pallet count) are left blank", () => {
+    expect(validateQuoteForm(valid)).toEqual({ valid: true, errors: {} });
   });
 });
 

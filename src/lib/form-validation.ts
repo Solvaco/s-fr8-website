@@ -27,6 +27,10 @@ export type QuoteFormValues = {
   origin: string;
   destination: string;
   freightType: string;
+  loadType: string;
+  dimensions: string;
+  materialType: string;
+  palletCount: string;
   weight: string;
   date: string;
 };
@@ -39,6 +43,7 @@ export function validateQuoteForm(values: QuoteFormValues): ValidationResult {
     "origin",
     "destination",
     "freightType",
+    "loadType",
     "weight",
     "date",
   ]);
@@ -47,6 +52,9 @@ export function validateQuoteForm(values: QuoteFormValues): ValidationResult {
   }
   if (!errors.weight && !POSITIVE_NUMBER_RE.test(values.weight.trim())) {
     errors.weight = "invalid";
+  }
+  if (values.palletCount.trim() && !/^[0-9]+$/.test(values.palletCount.trim())) {
+    errors.palletCount = "invalid";
   }
   return { valid: Object.keys(errors).length === 0, errors };
 }
