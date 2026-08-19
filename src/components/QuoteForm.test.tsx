@@ -9,6 +9,10 @@ vi.mock("@/lib/send-email", () => ({
   sendFormEmail: vi.fn(),
 }));
 
+vi.mock("@/lib/address-search", () => ({
+  searchAddress: vi.fn().mockResolvedValue([]),
+}));
+
 function fillValidForm() {
   fireEvent.change(screen.getByLabelText("Nom"), { target: { value: "Jean Dupont" } });
   fireEvent.change(screen.getByLabelText("Courriel"), { target: { value: "jean@example.com" } });

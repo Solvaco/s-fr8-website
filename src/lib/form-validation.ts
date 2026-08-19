@@ -24,8 +24,16 @@ export type QuoteFormValues = {
   name: string;
   email: string;
   phone: string;
-  origin: string;
-  destination: string;
+  originAddress: string;
+  originCity: string;
+  originProvince: string;
+  originPostalCode: string;
+  originCountry: string;
+  destinationAddress: string;
+  destinationCity: string;
+  destinationProvince: string;
+  destinationPostalCode: string;
+  destinationCountry: string;
   freightType: string;
   loadType: string;
   dimensionsLength: string;
@@ -42,8 +50,8 @@ export function validateQuoteForm(values: QuoteFormValues): ValidationResult {
     "name",
     "email",
     "phone",
-    "origin",
-    "destination",
+    "originAddress",
+    "destinationAddress",
     "freightType",
     "loadType",
     "weight",

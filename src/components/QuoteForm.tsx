@@ -8,7 +8,10 @@ import { useLanguage } from "@/lib/language-context";
 import { translations } from "@/lib/translations";
 import { validateQuoteForm, QuoteFormValues } from "@/lib/form-validation";
 import { sendFormEmail } from "@/lib/send-email";
+import { type AddressSuggestion } from "@/lib/address-search";
+import AddressAutocomplete from "./AddressAutocomplete";
 import FormStatus, { FormStatusState } from "./FormStatus";
+import type { LatLng } from "./RouteMap";
 
 // Leaflet touches `window` at import time — must never run during SSR.
 const RouteMap = dynamic(() => import("./RouteMap"), {
@@ -20,8 +23,16 @@ const EMPTY: QuoteFormValues = {
   name: "",
   email: "",
   phone: "",
-  origin: "",
-  destination: "",
+  originAddress: "",
+  originCity: "",
+  originProvince: "",
+  originPostalCode: "",
+  originCountry: "",
+  destinationAddress: "",
+  destinationCity: "",
+  destinationProvince: "",
+  destinationPostalCode: "",
+  destinationCountry: "",
   freightType: "",
   loadType: "",
   dimensionsLength: "",
@@ -53,6 +64,8 @@ export default function QuoteForm() {
   const [validationMessage, setValidationMessage] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string>(status.errorSend);
   const [invalidFields, setInvalidFields] = useState<Set<string>>(new Set());
+  const [originGeo, setOriginGeo] = useState<LatLng | null>(null);
+  const [destinationGeo, setDestinationGeo] = useState<LatLng | null>(null);
   const shakeControls = useAnimationControls();
 
   const inputClass = (key: keyof QuoteFormValues) =>
@@ -69,6 +82,21 @@ export default function QuoteForm() {
     onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
       setValues((prev) => ({ ...prev, [key]: e.target.value })),
   });
+
+  const handleAddressSelect = (
+    prefix: "origin" | "destination",
+    setGeo: (geo: LatLng) => void
+  ) => (suggestion: AddressSuggestion) => {
+    setValues((prev) => ({
+      ...prev,
+      [`${prefix}Address`]: suggestion.address,
+      [`${prefix}City`]: suggestion.city,
+      [`${prefix}Province`]: suggestion.province,
+      [`${prefix}PostalCode`]: suggestion.postalCode,
+      [`${prefix}Country`]: suggestion.country,
+    }));
+    setGeo({ lat: suggestion.lat, lng: suggestion.lng });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -88,6 +116,8 @@ export default function QuoteForm() {
     if (sendResult.status === "sent") {
       setState("success");
       setValues(EMPTY);
+      setOriginGeo(null);
+      setDestinationGeo(null);
     } else {
       setErrorMessage(sendResult.status === "not-configured" ? status.errorConfig : status.errorSend);
       setState("error");
@@ -132,15 +162,73 @@ export default function QuoteForm() {
           </select>
         </div>
         <div>
-          <label htmlFor="origin" className={labelClass}>{t.origin}</label>
-          <input {...field("origin")} id="origin" className={inputClass("origin")} />
+          <AddressAutocomplete
+            id="originAddress"
+            label={t.origin}
+            value={values.originAddress}
+            invalid={invalidFields.has("originAddress")}
+            onChange={(text) => setValues((prev) => ({ ...prev, originAddress: text }))}
+            onSelect={handleAddressSelect("origin", setOriginGeo)}
+          />
         </div>
         <div>
-          <label htmlFor="destination" className={labelClass}>{t.destination}</label>
-          <input {...field("destination")} id="destination" className={inputClass("destination")} />
+          <AddressAutocomplete
+            id="destinationAddress"
+            label={t.destination}
+            value={values.destinationAddress}
+            invalid={invalidFields.has("destinationAddress")}
+            onChange={(text) => setValues((prev) => ({ ...prev, destinationAddress: text }))}
+            onSelect={handleAddressSelect("destination", setDestinationGeo)}
+          />
+        </div>
+        <div className="grid grid-cols-2 gap-4 sm:col-span-2 sm:grid-cols-4">
+          <div>
+            <label htmlFor="originCity" className={labelClass}>{t.city}</label>
+            <input {...field("originCity")} id="originCity" className={inputClass("originCity")} />
+          </div>
+          <div>
+            <label htmlFor="originProvince" className={labelClass}>{t.province}</label>
+            <input {...field("originProvince")} id="originProvince" className={inputClass("originProvince")} />
+          </div>
+          <div>
+            <label htmlFor="originPostalCode" className={labelClass}>{t.postalCode}</label>
+            <input {...field("originPostalCode")} id="originPostalCode" className={inputClass("originPostalCode")} />
+          </div>
+          <div>
+            <label htmlFor="originCountry" className={labelClass}>{t.country}</label>
+            <input {...field("originCountry")} id="originCountry" className={inputClass("originCountry")} />
+          </div>
+          <div>
+            <label htmlFor="destinationCity" className={labelClass}>{t.city}</label>
+            <input {...field("destinationCity")} id="destinationCity" className={inputClass("destinationCity")} />
+          </div>
+          <div>
+            <label htmlFor="destinationProvince" className={labelClass}>{t.province}</label>
+            <input
+              {...field("destinationProvince")}
+              id="destinationProvince"
+              className={inputClass("destinationProvince")}
+            />
+          </div>
+          <div>
+            <label htmlFor="destinationPostalCode" className={labelClass}>{t.postalCode}</label>
+            <input
+              {...field("destinationPostalCode")}
+              id="destinationPostalCode"
+              className={inputClass("destinationPostalCode")}
+            />
+          </div>
+          <div>
+            <label htmlFor="destinationCountry" className={labelClass}>{t.country}</label>
+            <input
+              {...field("destinationCountry")}
+              id="destinationCountry"
+              className={inputClass("destinationCountry")}
+            />
+          </div>
         </div>
         <div className="sm:col-span-2">
-          <RouteMap origin={values.origin} destination={values.destination} />
+          <RouteMap origin={originGeo} destination={destinationGeo} />
         </div>
         <div>
           <label htmlFor="loadType" className={labelClass}>{t.loadType}</label>
