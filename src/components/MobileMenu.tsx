@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { List, X } from "@phosphor-icons/react";
@@ -10,6 +11,9 @@ type NavLink = { href: string; label: string };
 
 export default function MobileMenu({ links, cta }: { links: NavLink[]; cta: { href: string; label: string } }) {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -41,56 +45,63 @@ export default function MobileMenu({ links, cta }: { links: NavLink[]; cta: { hr
         </AnimatePresence>
       </button>
 
+      {mounted &&
+        createPortal(
+          <AnimatePresence>
+            {open && (
+              <motion.div
+                key="scrim"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                onClick={() => setOpen(false)}
+                className="fixed inset-0 z-30 bg-ink/40"
+                aria-hidden
+              />
+            )}
+          </AnimatePresence>,
+          document.body
+        )}
+
       <AnimatePresence>
         {open && (
-          <>
-            <motion.div
-              key="scrim"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              onClick={() => setOpen(false)}
-              className="fixed inset-0 z-30 bg-ink/40"
-              aria-hidden
-            />
-            <motion.div
-              key="panel"
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute inset-x-0 top-full z-40 overflow-hidden border-t border-line bg-paper shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)]"
+          <motion.div
+            key="panel"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute inset-x-0 top-full z-40 overflow-hidden border-t border-line bg-paper shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)]"
+          >
+            <motion.nav
+              variants={staggerContainer}
+              initial="hidden"
+              animate="visible"
+              className="flex flex-col gap-1 px-4 py-4"
             >
-              <motion.nav
-                variants={staggerContainer}
-                initial="hidden"
-                animate="visible"
-                className="flex flex-col gap-1 px-4 py-4"
-              >
-                {links.map((link) => (
-                  <motion.div key={link.href} variants={fadeUp}>
-                    <Link
-                      href={link.href}
-                      onClick={() => setOpen(false)}
-                      className="block rounded-lg px-3 py-2.5 text-sm font-medium text-ink hover:bg-panel"
-                    >
-                      {link.label}
-                    </Link>
-                  </motion.div>
-                ))}
-                <motion.div variants={fadeUp} className="pt-2">
+              {links.map((link) => (
+                <motion.div key={link.href} variants={fadeUp}>
                   <Link
-                    href={cta.href}
+                    href={link.href}
                     onClick={() => setOpen(false)}
-                    className="block rounded-full bg-accent px-4 py-2.5 text-center text-sm font-semibold text-white"
+                    className="block rounded-lg px-3 py-2.5 text-sm font-medium text-ink hover:bg-panel"
                   >
-                    {cta.label}
+                    {link.label}
                   </Link>
                 </motion.div>
-              </motion.nav>
-            </motion.div>
-          </>
+              ))}
+              <motion.div variants={fadeUp} className="pt-2">
+                <Link
+                  href={cta.href}
+                  onClick={() => setOpen(false)}
+                  className="block rounded-full bg-accent px-4 py-2.5 text-center text-sm font-semibold text-white"
+                >
+                  {cta.label}
+                </Link>
+              </motion.div>
+            </motion.nav>
+          </motion.div>
         )}
       </AnimatePresence>
     </div>
