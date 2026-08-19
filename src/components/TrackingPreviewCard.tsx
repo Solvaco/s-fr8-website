@@ -29,13 +29,13 @@ function AdvancingLayer({ src, alt, delay }: { src: string; alt: string; delay: 
 
 function TrackingPreviewCard() {
   const { lang } = useLanguage();
-  const alt = lang === "fr" ? "Camion flatbed en route" : "Flatbed truck on the road";
+  const alt = lang === "fr" ? "Entrepôt logistique avec palettes" : "Logistics warehouse with pallet racking";
 
   return (
     <div className="w-full max-w-sm overflow-hidden rounded-[1.75rem] border border-line bg-panel shadow-[0_20px_40px_-15px_rgba(22,32,43,0.12)]">
       <div className="relative h-56 w-full overflow-hidden">
-        <AdvancingLayer src="/images/flatbed-highway.jpg" alt={alt} delay={0} />
-        <AdvancingLayer src="/images/flatbed-highway.jpg" alt={alt} delay={DURATION / 2} />
+        <AdvancingLayer src="/images/warehouse-interior.jpg" alt={alt} delay={0} />
+        <AdvancingLayer src="/images/warehouse-interior.jpg" alt={alt} delay={DURATION / 2} />
       </div>
     </div>
   );
