@@ -17,7 +17,9 @@ const EMPTY: QuoteFormValues = {
   destination: "",
   freightType: "",
   loadType: "",
-  dimensions: "",
+  dimensionsLength: "",
+  dimensionsWidth: "",
+  dimensionsHeight: "",
   materialType: "",
   palletCount: "",
   weight: "",
@@ -144,9 +146,42 @@ export default function QuoteForm() {
             <option value={t.loadTypeLtl}>{t.loadTypeLtl}</option>
           </select>
         </div>
-        <div>
-          <label htmlFor="dimensions" className={labelClass}>{t.dimensions}</label>
-          <input {...field("dimensions")} id="dimensions" className={inputClass("dimensions")} />
+        <div className="sm:col-span-2">
+          <span className={labelClass}>{t.dimensionsTitle}</span>
+          <div className="flex items-center gap-2">
+            <div className="flex-1">
+              <label htmlFor="dimensionsLength" className="sr-only">{t.dimensionsLength}</label>
+              <input
+                {...field("dimensionsLength")}
+                id="dimensionsLength"
+                inputMode="decimal"
+                placeholder={t.dimensionsLength}
+                className={inputClass("dimensionsLength")}
+              />
+            </div>
+            <span className="shrink-0 text-sm text-muted">×</span>
+            <div className="flex-1">
+              <label htmlFor="dimensionsWidth" className="sr-only">{t.dimensionsWidth}</label>
+              <input
+                {...field("dimensionsWidth")}
+                id="dimensionsWidth"
+                inputMode="decimal"
+                placeholder={t.dimensionsWidth}
+                className={inputClass("dimensionsWidth")}
+              />
+            </div>
+            <span className="shrink-0 text-sm text-muted">×</span>
+            <div className="flex-1">
+              <label htmlFor="dimensionsHeight" className="sr-only">{t.dimensionsHeight}</label>
+              <input
+                {...field("dimensionsHeight")}
+                id="dimensionsHeight"
+                inputMode="decimal"
+                placeholder={t.dimensionsHeight}
+                className={inputClass("dimensionsHeight")}
+              />
+            </div>
+          </div>
         </div>
         <div>
           <label htmlFor="materialType" className={labelClass}>{t.materialType}</label>

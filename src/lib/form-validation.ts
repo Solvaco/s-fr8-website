@@ -28,7 +28,9 @@ export type QuoteFormValues = {
   destination: string;
   freightType: string;
   loadType: string;
-  dimensions: string;
+  dimensionsLength: string;
+  dimensionsWidth: string;
+  dimensionsHeight: string;
   materialType: string;
   palletCount: string;
   weight: string;
@@ -55,6 +57,11 @@ export function validateQuoteForm(values: QuoteFormValues): ValidationResult {
   }
   if (values.palletCount.trim() && !/^[0-9]+$/.test(values.palletCount.trim())) {
     errors.palletCount = "invalid";
+  }
+  for (const dim of ["dimensionsLength", "dimensionsWidth", "dimensionsHeight"] as const) {
+    if (values[dim].trim() && !POSITIVE_NUMBER_RE.test(values[dim].trim())) {
+      errors[dim] = "invalid";
+    }
   }
   return { valid: Object.keys(errors).length === 0, errors };
 }
