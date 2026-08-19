@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { Truck, Snowflake, Stack, GlobeHemisphereWest, ArrowRight } from "@phosphor-icons/react";
 import { useLanguage } from "@/lib/language-context";
 import { translations } from "@/lib/translations";
+import { fadeUp, staggerContainer } from "@/lib/motion-variants";
 
 const ICONS = [Truck, Snowflake, Stack, GlobeHemisphereWest];
 
@@ -27,19 +29,29 @@ export default function ServicesTeaser() {
         </Link>
       </div>
 
-      <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-4">
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-4"
+      >
         {t.items.map((item, i) => {
           const Icon = ICONS[i];
           return (
-            <div key={item.title} className="rounded-2xl border border-line bg-panel p-6">
+            <motion.div
+              key={item.title}
+              variants={fadeUp}
+              className="rounded-2xl border border-line bg-panel p-6"
+            >
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10 text-accent">
                 <Icon size={20} weight="bold" />
               </div>
               <h3 className="mt-4 text-base font-semibold text-ink">{item.title}</h3>
-            </div>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
     </section>
   );
 }

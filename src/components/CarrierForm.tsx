@@ -2,6 +2,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, useAnimationControls } from "framer-motion";
 import { useLanguage } from "@/lib/language-context";
 import { translations } from "@/lib/translations";
 import { validateCarrierForm, CarrierFormValues } from "@/lib/form-validation";
@@ -25,6 +26,7 @@ export default function CarrierForm() {
   const [validationMessage, setValidationMessage] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string>(status.errorSend);
   const [invalidFields, setInvalidFields] = useState<Set<string>>(new Set());
+  const shakeControls = useAnimationControls();
 
   const inputClass = (key: keyof CarrierFormValues) =>
     `${baseInputClass} ${
@@ -48,6 +50,7 @@ export default function CarrierForm() {
       setInvalidFields(new Set(Object.keys(result.errors)));
       setValidationMessage(status.validationError);
       setState("idle");
+      shakeControls.start({ x: [0, -6, 6, -4, 4, 0], transition: { duration: 0.3, ease: "easeInOut" } });
       return;
     }
     setInvalidFields(new Set());
@@ -65,7 +68,7 @@ export default function CarrierForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="grid gap-4 sm:grid-cols-2">
+    <motion.form animate={shakeControls} onSubmit={handleSubmit} noValidate className="grid gap-4 sm:grid-cols-2">
       <div>
         <label htmlFor="name" className={labelClass}>{t.name}</label>
         <input {...field("name")} id="name" className={inputClass("name")} />
@@ -99,6 +102,6 @@ export default function CarrierForm() {
       >
         {sending ? t.sending : t.submit}
       </button>
-    </form>
+    </motion.form>
   );
 }

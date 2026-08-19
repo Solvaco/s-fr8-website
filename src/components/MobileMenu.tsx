@@ -25,9 +25,20 @@ export default function MobileMenu({ links, cta }: { links: NavLink[]; cta: { hr
         aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="flex h-9 w-9 items-center justify-center rounded-full text-ink"
+        className="relative flex h-9 w-9 items-center justify-center rounded-full text-ink"
       >
-        {open ? <X size={20} weight="regular" /> : <List size={20} weight="regular" />}
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.span
+            key={open ? "close" : "open"}
+            initial={{ opacity: 0, rotate: -90 }}
+            animate={{ opacity: 1, rotate: 0 }}
+            exit={{ opacity: 0, rotate: 90 }}
+            transition={{ duration: 0.15, ease: "easeOut" }}
+            className="absolute inset-0 flex items-center justify-center"
+          >
+            {open ? <X size={20} weight="regular" /> : <List size={20} weight="regular" />}
+          </motion.span>
+        </AnimatePresence>
       </button>
 
       <AnimatePresence>
