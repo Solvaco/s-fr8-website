@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Truck, Snowflake, Stack, GlobeHemisphereWest } from "@phosphor-icons/react";
+import { Truck, Snowflake, Stack, GlobeHemisphereWest, Package, PuzzlePiece } from "@phosphor-icons/react";
 import { useLanguage } from "@/lib/language-context";
 import { translations } from "@/lib/translations";
 import ServiceCard from "@/components/ServiceCard";
@@ -9,11 +9,13 @@ import PageBanner from "@/components/PageBanner";
 import { fadeUp, staggerContainer } from "@/lib/motion-variants";
 import WordReveal from "@/components/WordReveal";
 
-const ICONS = [Truck, Snowflake, Stack, GlobeHemisphereWest];
+const ICONS = [Truck, Snowflake, Stack, GlobeHemisphereWest, Package, PuzzlePiece];
 const SPANS = [
   "md:col-span-2",
   "md:col-span-1",
   "md:col-span-1",
+  "md:col-span-2",
+  "md:col-span-2",
   "md:col-span-4",
 ];
 

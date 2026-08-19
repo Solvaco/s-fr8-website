@@ -40,6 +40,14 @@ export const translations = {
           title: "Cross-border CA/US",
           desc: "Expertise douanière et réseau de transporteurs des deux côtés de la frontière.",
         },
+        {
+          title: "LTL",
+          desc: "Chargement partiel groupé avec d'autres charges, facturé selon l'espace et le poids réels.",
+        },
+        {
+          title: "Service spécialisé",
+          desc: "Charges hors-normes, projets industriels et besoins de manutention particuliers, gérés sur mesure.",
+        },
       ],
       teaserCta: "Voir tous les services",
     },
@@ -189,6 +197,14 @@ export const translations = {
         {
           title: "Cross-border CA/US",
           desc: "Customs expertise and a carrier network on both sides of the border.",
+        },
+        {
+          title: "LTL",
+          desc: "Partial loads consolidated with other freight, billed by actual space and weight.",
+        },
+        {
+          title: "Specialized Service",
+          desc: "Oversized loads, industrial projects, and custom handling needs, managed on a case-by-case basis.",
         },
       ],
       teaserCta: "View all services",

@@ -36,7 +36,7 @@ export default function ServicesTeaser() {
         viewport={{ once: true, margin: "-80px" }}
         className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-4"
       >
-        {t.items.map((item, i) => {
+        {t.items.slice(0, 4).map((item, i) => {
           const Icon = ICONS[i];
           return (
             <motion.div
