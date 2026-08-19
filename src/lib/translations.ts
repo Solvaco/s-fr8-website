@@ -6,7 +6,7 @@ export const translations = {
       home: "Accueil",
       services: "Services",
       about: "À propos",
-      carrier: "Devenir Carrier",
+      carrier: "Devenir Transporteur",
       tracking: "Suivi de charge",
       contact: "Contact",
       cta: "Obtenir une soumission",
@@ -15,9 +15,9 @@ export const translations = {
       title: "Votre Fret,",
       titleHighlight: "Livré Sans Compromis",
       subtitle:
-        "Dry van, reefer, flatbed et cross-border CA/US — SFR8 connecte shippers et carriers avec réactivité et fiabilité.",
+        "Dry van, reefer, flatbed et cross-border CA/US — SFR8 connecte shippers et transporteurs avec réactivité et fiabilité.",
       ctaQuote: "Demander une soumission",
-      ctaCarrier: "Devenir Carrier",
+      ctaCarrier: "Devenir Transporteur",
       ctaTracking: "Suivre une charge",
     },
     services: {
@@ -38,22 +38,22 @@ export const translations = {
         },
         {
           title: "Cross-border CA/US",
-          desc: "Expertise douanière et réseau de carriers des deux côtés de la frontière.",
+          desc: "Expertise douanière et réseau de transporteurs des deux côtés de la frontière.",
         },
       ],
       teaserCta: "Voir tous les services",
     },
     differentiator: {
       title: "Pourquoi SFR8",
-      body: "Réactivité et couverture Canada–USA : un réseau de carriers et une expertise douanière des deux côtés de la frontière, pour répondre plus vite qu'un courtier régional.",
+      body: "Réactivité et couverture Canada–USA : un réseau de transporteurs et une expertise douanière des deux côtés de la frontière, pour répondre plus vite qu'un courtier régional.",
       points: [
         {
           title: "Réactif",
-          desc: "Réponse rapide à chaque demande de soumission ou candidature carrier.",
+          desc: "Réponse rapide à chaque demande de soumission ou candidature transporteur.",
         },
         {
           title: "Cross-border CA/US",
-          desc: "Réseau de carriers et connaissance douanière des deux côtés de la frontière.",
+          desc: "Réseau de transporteurs et connaissance douanière des deux côtés de la frontière.",
         },
         {
           title: "Famille Solvaco",
@@ -64,7 +64,7 @@ export const translations = {
     },
     about: {
       title: "À propos de SFR8",
-      body: "SFR8 est la division logistique de la famille Solvaco. Nous mettons en relation shippers et carriers avec la même rigueur et le même souci du service qui font la réputation de Solvaco depuis ses débuts.",
+      body: "SFR8 est la division logistique de la famille Solvaco. Nous mettons en relation shippers et transporteurs avec la même rigueur et le même souci du service qui font la réputation de Solvaco depuis ses débuts.",
       valuesTitle: "Comment on travaille",
       values: [
         {
@@ -73,17 +73,17 @@ export const translations = {
         },
         {
           title: "Réactivité",
-          desc: "On répond rapidement à chaque demande de soumission, candidature carrier ou suivi de charge.",
+          desc: "On répond rapidement à chaque demande de soumission, candidature transporteur ou suivi de charge.",
         },
         {
           title: "Couverture CA/US",
-          desc: "Réseau de carriers et expertise douanière des deux côtés de la frontière, pour du dry van, reefer et flatbed.",
+          desc: "Réseau de transporteurs et expertise douanière des deux côtés de la frontière, pour du dry van, reefer et flatbed.",
         },
       ],
       closing: "Une question avant de soumettre une demande? Écrivez-nous à info@solvaco.com ou appelez au 514-922-7848.",
     },
     carrier: {
-      title: "Devenir Carrier",
+      title: "Devenir Transporteur",
       subtitle: "Roulez avec un partenaire fiable. Remplissez le formulaire pour être contacté.",
       form: {
         name: "Nom / Compagnie",

@@ -12,7 +12,7 @@ describe("Hero", () => {
       </LanguageProvider>
     );
     expect(screen.getByRole("link", { name: "Demander une soumission" })).toHaveAttribute("href", "/contact");
-    expect(screen.getByRole("link", { name: "Devenir Carrier" })).toHaveAttribute("href", "/devenir-carrier");
+    expect(screen.getByRole("link", { name: "Devenir Transporteur" })).toHaveAttribute("href", "/devenir-carrier");
     expect(screen.getByRole("link", { name: "Suivre une charge" })).toHaveAttribute("href", "/suivi");
   });
 });
