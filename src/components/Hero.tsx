@@ -16,6 +16,12 @@ export default function Hero() {
 
   return (
     <section className="relative overflow-hidden bg-paper text-ink">
+      <motion.div
+        className="pointer-events-none absolute -right-40 -top-40 h-[32rem] w-[32rem] rounded-full bg-accent/10 blur-3xl"
+        animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
+        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+        aria-hidden
+      />
       <div className="pointer-events-none absolute inset-0 grain opacity-70" aria-hidden />
       <div className="relative mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-12 px-4 py-20 sm:px-6 md:grid-cols-[3fr_2fr] md:py-28 lg:gap-20">
         <motion.div

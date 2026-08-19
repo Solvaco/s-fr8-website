@@ -15,19 +15,25 @@ export default function ServicesTeaser() {
 
   return (
     <section className="mx-auto max-w-[1400px] px-4 py-20 sm:px-6 md:py-28">
-      <div className="flex flex-wrap items-end justify-between gap-4">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        variants={fadeUp}
+        className="flex flex-wrap items-end justify-between gap-4"
+      >
         <div>
           <h2 className="text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">{t.title}</h2>
           <p className="mt-3 max-w-[52ch] text-base leading-relaxed text-muted">{t.subtitle}</p>
         </div>
         <Link
           href="/services"
-          className="inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent-dark"
+          className="group inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent-dark"
         >
           {t.teaserCta}
-          <ArrowRight size={15} weight="bold" />
+          <ArrowRight size={15} weight="bold" className="transition-transform group-hover:translate-x-1" />
         </Link>
-      </div>
+      </motion.div>
 
       <motion.div
         variants={staggerContainer}
@@ -42,6 +48,8 @@ export default function ServicesTeaser() {
             <motion.div
               key={item.title}
               variants={fadeUp}
+              whileHover={{ y: -4 }}
+              transition={{ type: "spring", stiffness: 300, damping: 22 }}
               className="rounded-2xl border border-line bg-panel p-6"
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10 text-accent">

@@ -46,8 +46,8 @@ export default function Differentiator() {
             {t.points.map((point, i) => {
               const Icon = ICONS[i];
               return (
-                <motion.div key={point.title} variants={fadeUp}>
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10 text-accent">
+                <motion.div key={point.title} variants={fadeUp} className="group">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10 text-accent transition-transform duration-300 ease-out group-hover:-rotate-6 group-hover:scale-110">
                     <Icon size={20} weight="bold" />
                   </div>
                   <h3 className="mt-4 text-base font-semibold text-ink">{point.title}</h3>
