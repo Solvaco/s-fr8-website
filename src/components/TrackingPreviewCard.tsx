@@ -32,12 +32,15 @@ function TrackingPreviewCard() {
       <div className="relative mt-3 h-px w-full bg-line">
         <div className="absolute inset-y-0 left-0 w-2/3 bg-accent/50" />
         <motion.div
-          className="absolute -top-2.5 flex h-5 w-5 items-center justify-center rounded-full bg-accent text-white"
+          className="absolute -top-[15px] text-accent drop-shadow-[0_2px_3px_rgba(168,83,31,0.35)]"
           initial={{ left: "0%" }}
-          animate={{ left: ["0%", "63%", "63%"] }}
-          transition={{ duration: 3, repeat: Infinity, repeatDelay: 1.5, ease: [0.16, 1, 0.3, 1] }}
+          animate={{ left: ["0%", "63%", "63%"], y: [0, -1, 0, -1, 0] }}
+          transition={{
+            left: { duration: 3, repeat: Infinity, repeatDelay: 1.5, ease: [0.16, 1, 0.3, 1] },
+            y: { duration: 0.35, repeat: Infinity, ease: "easeInOut" },
+          }}
         >
-          <Truck size={12} weight="fill" />
+          <Truck size={26} weight="fill" />
         </motion.div>
         <MapPin size={14} weight="fill" className="absolute -top-[7px] left-0 text-accent" />
         <CircleDashed size={14} weight="bold" className="absolute -top-[7px] right-0 text-muted/50" />
