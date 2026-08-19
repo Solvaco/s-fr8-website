@@ -58,9 +58,11 @@ export async function searchAddress(
     const p = f.properties;
     const [lng, lat] = f.geometry.coordinates;
     const streetLine = [p.housenumber, p.street].filter(Boolean).join(" ") || p.name || "";
-    const label = [streetLine || p.name, p.city, p.state, p.postcode, p.country]
-      .filter(Boolean)
-      .join(", ");
+    // Postal code is deliberately left out of the visible label: OSM's
+    // Canadian postcode data is unreliable (the same address can show up
+    // twice with two different postcodes) — showing it here would read as
+    // fact when it's often wrong. Still captured below as a rough hint.
+    const label = [streetLine || p.name, p.city, p.state, p.country].filter(Boolean).join(", ");
 
     return {
       label,
