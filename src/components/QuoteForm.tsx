@@ -181,52 +181,6 @@ export default function QuoteForm() {
             onSelect={handleAddressSelect("destination", setDestinationGeo)}
           />
         </div>
-        <div className="grid grid-cols-2 gap-4 sm:col-span-2 sm:grid-cols-4">
-          <div>
-            <label htmlFor="originCity" className={labelClass}>{t.city}</label>
-            <input {...field("originCity")} id="originCity" className={inputClass("originCity")} />
-          </div>
-          <div>
-            <label htmlFor="originProvince" className={labelClass}>{t.province}</label>
-            <input {...field("originProvince")} id="originProvince" className={inputClass("originProvince")} />
-          </div>
-          <div>
-            <label htmlFor="originPostalCode" className={labelClass}>{t.postalCode}</label>
-            <input {...field("originPostalCode")} id="originPostalCode" className={inputClass("originPostalCode")} />
-          </div>
-          <div>
-            <label htmlFor="originCountry" className={labelClass}>{t.country}</label>
-            <input {...field("originCountry")} id="originCountry" className={inputClass("originCountry")} />
-          </div>
-          <div>
-            <label htmlFor="destinationCity" className={labelClass}>{t.city}</label>
-            <input {...field("destinationCity")} id="destinationCity" className={inputClass("destinationCity")} />
-          </div>
-          <div>
-            <label htmlFor="destinationProvince" className={labelClass}>{t.province}</label>
-            <input
-              {...field("destinationProvince")}
-              id="destinationProvince"
-              className={inputClass("destinationProvince")}
-            />
-          </div>
-          <div>
-            <label htmlFor="destinationPostalCode" className={labelClass}>{t.postalCode}</label>
-            <input
-              {...field("destinationPostalCode")}
-              id="destinationPostalCode"
-              className={inputClass("destinationPostalCode")}
-            />
-          </div>
-          <div>
-            <label htmlFor="destinationCountry" className={labelClass}>{t.country}</label>
-            <input
-              {...field("destinationCountry")}
-              id="destinationCountry"
-              className={inputClass("destinationCountry")}
-            />
-          </div>
-        </div>
         <div className="sm:col-span-2">
           <RouteMap origin={originGeo} destination={destinationGeo} />
         </div>
