@@ -11,10 +11,30 @@ const TEMPLATE_ENV_KEY: Record<FormKind, string> = {
   tracking: "NEXT_PUBLIC_EMAILJS_TEMPLATE_TRACKING",
 };
 
+const CRM_WEBHOOK_URL: Partial<Record<FormKind, string>> = {
+  quote: "https://n8nprof.tech/webhook/s-fr8/client-form",
+  carrier: "https://n8nprof.tech/webhook/s-fr8/carrier-form",
+};
+
+function sendToCRM(kind: FormKind, templateParams: Record<string, string>) {
+  const url = CRM_WEBHOOK_URL[kind];
+  if (!url) return;
+
+  fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(templateParams),
+  }).catch(() => {
+    // Le CRM est secondaire au courriel — un échec ici ne doit jamais bloquer l'utilisateur.
+  });
+}
+
 export async function sendFormEmail(
   kind: FormKind,
   templateParams: Record<string, string>
 ): Promise<SendResult> {
+  sendToCRM(kind, templateParams);
+
   const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
   const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
   const templateId = process.env[TEMPLATE_ENV_KEY[kind]];
