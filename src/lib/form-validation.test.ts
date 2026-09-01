@@ -69,8 +69,10 @@ describe("validateQuoteForm", () => {
 
 describe("validateCarrierForm", () => {
   const valid = {
-    name: "ABC Trucking",
-    equipment: "Reefer",
+    name: "Jean Routier",
+    company: "ABC Trucking",
+    equipmentTypeId: "740e1ddc-7fdf-4070-a690-fa859c89cadf",
+    equipmentTypeOther: "",
     zone: "Ontario / Quebec",
     email: "dispatch@abctrucking.com",
     phone: "5145551234",
