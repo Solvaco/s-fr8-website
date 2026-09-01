@@ -1,7 +1,7 @@
 // src/components/CarrierForm.tsx
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, useAnimationControls } from "framer-motion";
 import { useLanguage } from "@/lib/language-context";
 import { translations } from "@/lib/translations";
@@ -9,7 +9,17 @@ import { validateCarrierForm, CarrierFormValues } from "@/lib/form-validation";
 import { sendFormEmail } from "@/lib/send-email";
 import FormStatus, { FormStatusState } from "./FormStatus";
 
-const EMPTY: CarrierFormValues = { name: "", equipment: "", zone: "", email: "", phone: "" };
+const EMPTY: CarrierFormValues = {
+  name: "",
+  company: "",
+  equipmentTypeId: "",
+  equipmentTypeOther: "",
+  zone: "",
+  email: "",
+  phone: "",
+};
+
+type EquipmentType = { id: string; name: string; is_other: boolean };
 
 const baseInputClass =
   "w-full rounded-xl border bg-panel px-3.5 py-2.5 text-sm text-ink outline-none transition-colors placeholder:text-muted/60 focus:ring-2";
@@ -26,7 +36,21 @@ export default function CarrierForm() {
   const [validationMessage, setValidationMessage] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string>(status.errorSend);
   const [invalidFields, setInvalidFields] = useState<Set<string>>(new Set());
+  const [equipmentTypes, setEquipmentTypes] = useState<EquipmentType[]>([]);
   const shakeControls = useAnimationControls();
+
+  // Même liste que le menu déroulant utilisé côté admin (CRM) pour les
+  // transporteurs — gérée dans le CRM, pas dupliquée ici.
+  useEffect(() => {
+    fetch("/admin/api/equipment-types")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (data?.equipmentTypes) setEquipmentTypes(data.equipmentTypes);
+      })
+      .catch(() => {});
+  }, []);
+
+  const selectedEquipmentType = equipmentTypes.find((eq) => eq.id === values.equipmentTypeId);
 
   const inputClass = (key: keyof CarrierFormValues) =>
     `${baseInputClass} ${
@@ -39,7 +63,7 @@ export default function CarrierForm() {
     id: key,
     value: values[key],
     "aria-invalid": invalidFields.has(key) || undefined,
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
+    onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
       setValues((prev) => ({ ...prev, [key]: e.target.value })),
   });
 
@@ -74,9 +98,36 @@ export default function CarrierForm() {
         <input {...field("name")} id="name" className={inputClass("name")} />
       </div>
       <div>
-        <label htmlFor="equipment" className={labelClass}>{t.equipment}</label>
-        <input {...field("equipment")} id="equipment" className={inputClass("equipment")} />
+        <label htmlFor="company" className={labelClass}>{t.company}</label>
+        <input {...field("company")} id="company" className={inputClass("company")} />
       </div>
+      <div>
+        <label htmlFor="equipmentTypeId" className={labelClass}>{t.equipment}</label>
+        <select
+          {...field("equipmentTypeId")}
+          id="equipmentTypeId"
+          className={`${inputClass("equipmentTypeId")} cursor-pointer`}
+        >
+          <option value="" disabled>
+            {t.equipmentPlaceholder}
+          </option>
+          {equipmentTypes.map((eq) => (
+            <option key={eq.id} value={eq.id}>
+              {eq.name}
+            </option>
+          ))}
+        </select>
+      </div>
+      {selectedEquipmentType?.is_other && (
+        <div>
+          <label htmlFor="equipmentTypeOther" className={labelClass}>{t.equipmentOther}</label>
+          <input
+            {...field("equipmentTypeOther")}
+            id="equipmentTypeOther"
+            className={inputClass("equipmentTypeOther")}
+          />
+        </div>
+      )}
       <div>
         <label htmlFor="zone" className={labelClass}>{t.zone}</label>
         <input {...field("zone")} id="zone" className={inputClass("zone")} />
