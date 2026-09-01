@@ -76,14 +76,19 @@ export function validateQuoteForm(values: QuoteFormValues): ValidationResult {
 
 export type CarrierFormValues = {
   name: string;
-  equipment: string;
+  company: string;
+  equipmentTypeId: string;
+  equipmentTypeOther: string;
   zone: string;
   email: string;
   phone: string;
 };
 
 export function validateCarrierForm(values: CarrierFormValues): ValidationResult {
-  const errors = requireFields(values, ["name", "equipment", "zone", "email", "phone"]);
+  // company et equipmentTypeOther restent optionnels : la compagnie n'est pas
+  // toujours pertinente (propriétaire-opérateur) et la précision d'équipement
+  // ne doit pas bloquer l'envoi si le transporteur ne la remplit pas.
+  const errors = requireFields(values, ["name", "equipmentTypeId", "zone", "email", "phone"]);
   if (!errors.email && !EMAIL_RE.test(values.email)) {
     errors.email = "invalid";
   }
