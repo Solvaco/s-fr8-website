@@ -3,16 +3,19 @@ export type FormKind = "quote" | "carrier" | "tracking";
 
 export type SendResult = { status: "sent" } | { status: "error" } | { status: "not-configured" };
 
-const CRM_WEBHOOK_URL: Partial<Record<FormKind, string>> = {
-  quote: "https://n8nprof.tech/webhook/s-fr8/client-form",
-  carrier: "https://n8nprof.tech/webhook/s-fr8/carrier-form",
+// Les formulaires passent par la route serveur du site (/api/forms/[kind]),
+// qui ajoute le secret et relaie vers n8n — l'adresse du webhook n8n et le
+// secret ne sont plus jamais exposés au navigateur.
+const FORM_ENDPOINTS: Partial<Record<FormKind, string>> = {
+  quote: "/api/forms/quote",
+  carrier: "/api/forms/carrier",
 };
 
 export async function sendFormEmail(
   kind: FormKind,
   templateParams: Record<string, string>
 ): Promise<SendResult> {
-  const url = CRM_WEBHOOK_URL[kind];
+  const url = FORM_ENDPOINTS[kind];
 
   if (!url) {
     return { status: "not-configured" };
