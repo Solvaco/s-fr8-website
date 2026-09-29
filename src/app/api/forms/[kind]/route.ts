@@ -2,10 +2,10 @@
 //
 // Relais serveur des formulaires du site vers n8n. Avant, le navigateur du
 // visiteur appelait directement le webhook n8n (URL publique, sans secret) :
-// n'importe qui pouvait crÃ©er de faux prospects et faire envoyer des courriels
+// n'importe qui pouvait créer de faux prospects et faire envoyer des courriels
 // de confirmation depuis info@s-fr8.com. Ici :
-//   1. le secret N8N_FORM_SECRET reste cÃ´tÃ© serveur (jamais dans le navigateur) ;
-//   2. seules les requÃªtes venant du site sont acceptÃ©es (en-tÃªte Origin) ;
+//   1. le secret N8N_FORM_SECRET reste côté serveur (jamais dans le navigateur) ;
+//   2. seules les requêtes venant du site sont acceptées (en-tête Origin) ;
 //   3. une limite simple par adresse IP freine les envois en rafale.
 import { NextResponse } from "next/server";
 
@@ -16,8 +16,8 @@ const N8N_WEBHOOKS: Record<string, string> = {
 
 const ALLOWED_ORIGINS = ["https://www.s-fr8.com", "https://s-fr8.com"];
 
-// Limite par instance serveur (mÃ©moire) : suffisant contre les rafales
-// d'un robot, sans dÃ©pendance externe.
+// Limite par instance serveur (mémoire) : suffisant contre les rafales
+// d'un robot, sans dépendance externe.
 const WINDOW_MS = 10 * 60 * 1000;
 const MAX_PER_WINDOW = 5;
 const hits = new Map<string, number[]>();
