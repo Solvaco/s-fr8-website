@@ -108,12 +108,22 @@ export const translations = {
     },
     tracking: {
       title: "Suivi de charge",
-      subtitle: "Entrez votre numéro de charge, notre équipe vous répond par courriel avec le statut.",
+      subtitle: "Entrez votre numéro de charge et le courriel de votre demande pour voir où en est votre chargement.",
       form: {
         loadNumber: "Numéro de charge",
         email: "Courriel",
-        submit: "Demander le statut",
-        sending: "Envoi en cours...",
+        submit: "Voir le statut",
+        sending: "Recherche...",
+      },
+      result: {
+        load: "Charge",
+        pickup: "Ramassage prévu le",
+        current: "étape actuelle",
+        steps: ["Demande reçue", "Confirmé", "Transporteur assigné", "Ramassé", "En transit", "Livré"],
+        notFound:
+          "Aucune charge ne correspond à ce numéro et à ce courriel. Vérifiez les deux informations, ou appelez-nous au 514-475-8557.",
+        tooMany: "Trop d'essais. Réessayez dans quelques minutes.",
+        error: "Service momentanément indisponible. Réessayez ou appelez-nous au 514-475-8557.",
       },
     },
     contact: {
@@ -298,12 +308,22 @@ export const translations = {
     },
     tracking: {
       title: "Track a Load",
-      subtitle: "Enter your load number, our team will reply by email with the status.",
+      subtitle: "Enter your load number and the email from your request to see where your load is.",
       form: {
         loadNumber: "Load Number",
         email: "Email",
-        submit: "Request Status",
-        sending: "Sending...",
+        submit: "Check Status",
+        sending: "Searching...",
+      },
+      result: {
+        load: "Load",
+        pickup: "Pickup scheduled on",
+        current: "current step",
+        steps: ["Request received", "Confirmed", "Carrier assigned", "Picked up", "In transit", "Delivered"],
+        notFound:
+          "No load matches this number and email. Check both, or call us at 514-475-8557.",
+        tooMany: "Too many attempts. Please try again in a few minutes.",
+        error: "Service temporarily unavailable. Please try again or call us at 514-475-8557.",
       },
     },
     contact: {
