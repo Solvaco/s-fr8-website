@@ -6,7 +6,6 @@ import { motion, useAnimationControls } from "framer-motion";
 import { useLanguage } from "@/lib/language-context";
 import { translations } from "@/lib/translations";
 import { validateTrackingForm, TrackingFormValues } from "@/lib/form-validation";
-import { sendFormEmail } from "@/lib/send-email";
 import FormStatus, { FormStatusState } from "./FormStatus";
 
 const EMPTY: TrackingFormValues = { loadNumber: "", email: "" };
@@ -24,7 +23,7 @@ export default function TrackingForm() {
   const [state, setState] = useState<FormStatusState>("idle");
   const [sending, setSending] = useState(false);
   const [validationMessage, setValidationMessage] = useState<string | null>(null);
-  const [errorMessage, setErrorMessage] = useState<string>(status.errorSend);
+  const [errorMessage] = useState<string>(status.errorSend);
   const [invalidFields, setInvalidFields] = useState<Set<string>>(new Set());
   const shakeControls = useAnimationControls();
 
@@ -56,15 +55,17 @@ export default function TrackingForm() {
     setInvalidFields(new Set());
     setValidationMessage(null);
     setSending(true);
-    const sendResult = await sendFormEmail("tracking", { ...values });
-    setSending(false);
-    if (sendResult.status === "sent") {
-      setState("success");
-      setValues(EMPTY);
-    } else {
-      setErrorMessage(sendResult.status === "not-configured" ? status.errorConfig : status.errorSend);
-      setState("error");
-    }
+    // Le suivi se fait dans le CRM (page publique www.s-fr8.com/admin/suivi),
+    // qui vérifie le n° de chargement + le courriel du client et affiche
+    // l'étape en cours.
+    const params = new URLSearchParams({
+      ref: values.loadNumber.trim(),
+      email: values.email.trim(),
+    });
+    // /admin est une autre application (le CRM, via la réécriture de
+    // next.config.ts) : navigation complète, pas le routeur Next de ce site.
+    // eslint-disable-next-line @next/next/no-location-assign-relative-destination
+    window.location.assign(`/admin/suivi?${params.toString()}`);
   };
 
   return (
